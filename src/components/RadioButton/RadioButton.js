@@ -51,12 +51,12 @@ export default function RadioButtonsGroup({label1, label2}) {
             fontSize: 28
           },
           "& .Mui-checked": {
-            color: "blue"
+            color: "#2050F5"
           }
         }}
       >
-        <MyFormControlLabel value="female" control={<Radio />} label={label1} />
-        <MyFormControlLabel value="male" control={<Radio />} label={label2} />
+        <MyFormControlLabel value={label1} control={<Radio />} label={label1} />
+        <MyFormControlLabel value={label2} control={<Radio />} label={label2} />
       </RadioGroup>
     </FormControl>
   );

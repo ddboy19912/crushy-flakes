@@ -19,7 +19,7 @@ position: fixed;
 display: flex;
 justify-content: center;
 align-items: center;
-overflow: hidden !important;
+${'' /* overflow: hidden !important; */}
 `
 const ModalBox = styled.div`
 position: absolute;

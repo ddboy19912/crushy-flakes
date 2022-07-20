@@ -178,7 +178,7 @@ const [selected, setSelected] = useState(null)
 <RadioButton label1='12 hour' label2='24 hour'/>
 
 <H3 style={{marginBottom: '0rem'}}>Date Format</H3>
-<RadioButton label1='mm/dd/yy' label2='mm/dd/yy'/>
+<RadioButton label1='mm/dd/yy' label2='dd/mm/yy'/>
 
 </TopRightContent>
 </TopRight>

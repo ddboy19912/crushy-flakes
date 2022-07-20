@@ -37,7 +37,10 @@ useEffect(() => {
     if (modalOpen) {
       document.body.style.overflow = 'hidden'
     }
-  }, [])
+    if(!modalOpen) {
+      document.body.style.overflow = 'unset'
+    }
+  }, [modalOpen])
 
 
   return (
