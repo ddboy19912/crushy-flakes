@@ -10,7 +10,7 @@ export default function CheckboxLabels({label}) {
   return (
     <FormGroup>
       <FormControlLabel control={<Checkbox defaultChecked  
-      checkedIcon={<SquareRounded style={{padding: '1px', border: '2px solid blue', borderRadius: '3px'}}   />}  />} label={label} />
+      checkedIcon={<SquareRounded style={{padding: '1px', border: '2px solid #2050F5', borderRadius: '3px'}}   />}  />} label={label} />
     </FormGroup>
   );
 }

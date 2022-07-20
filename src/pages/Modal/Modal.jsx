@@ -47,6 +47,7 @@ height: 50px;
 border: none;
 color: #FFFFFF;
 margin-top: 2rem;
+cursor: pointer;
 `
 
 const Div = styled.div`
