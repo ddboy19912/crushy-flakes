@@ -52,7 +52,7 @@ font-size: 14px;
 line-height: 20px;
 display: flex;
 align-items: center;
-color: #4BDE97;
+color: ${(props) => props.percent ? 'green' : 'red'};
 `
 
 
@@ -99,6 +99,11 @@ font-size: 13px;
 
 
 const InvestmentStat = () => {
+
+const [percent, setPercent] = React.useState(true)
+
+
+
   return (
     <Container>
         <Wrapper>
@@ -108,7 +113,7 @@ const InvestmentStat = () => {
     <Values>
    <ValueTitle>1,478,286</ValueTitle>
    <TextVal style={{marginTop: '-17px'}}>Total tokens</TextVal>
-   <PercentVal style={{marginTop: '-10px'}}><Timeline style={{fontSize: '14px'}}/>4.07%<Date>Last Month<KeyboardArrowDown/></Date></PercentVal>
+   <PercentVal style={{marginTop: '-10px'}} percent={percent}  ><Timeline style={{fontSize: '14px'}}/>4.07%<Date>Last Month<KeyboardArrowDown/></Date></PercentVal>
     </Values>
 </Items>
 
