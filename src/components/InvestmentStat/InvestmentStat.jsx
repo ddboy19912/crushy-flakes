@@ -1,10 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import {KeyboardArrowDown, Timeline} from '@material-ui/icons'
-import iconA from '../../../src/images/iconA.png'
-import iconB from '../../../src/images/iconB.png'
-import iconC from '../../../src/images/iconC.png'
-import iconD from '../../../src/images/iconD.png'
+import { InvestData } from './InvestmentData'
 
 
 const Container = styled.div`
@@ -52,7 +49,7 @@ font-size: 14px;
 line-height: 20px;
 display: flex;
 align-items: center;
-color: ${(props) => props.percent ? 'green' : 'red'};
+color: ${({color}) => color};
 `
 
 
@@ -100,49 +97,36 @@ font-size: 13px;
 
 const InvestmentStat = () => {
 
-const [percent, setPercent] = React.useState(true)
+const handleColors = (InvestData) => {
+     if (InvestData.percent > 0) return "#4BDE97";
+    if (InvestData.percent < 0) return "red";
+    return "orange";
+};
 
+const exampleValues = [-1, 0, 1];
+
+  const renderPercent = exampleValues.map((value) => {
+    return <PercentVal color={handleColors(value)}>{value}</PercentVal>;
+  });
 
 
   return (
     <Container>
         <Wrapper>
             <Content>
+            {InvestData.map((value, index) => {
+                return (
 <Items>
-<img src={iconA} alt="alt" style={{maxWidth: '100px'}} />
+<img src={value.img} alt="alt" style={{maxWidth: '100px'}} />
     <Values>
-   <ValueTitle>1,478,286</ValueTitle>
-   <TextVal style={{marginTop: '-17px'}}>Total tokens</TextVal>
-   <PercentVal style={{marginTop: '-10px'}} percent={percent}  ><Timeline style={{fontSize: '14px'}}/>4.07%<Date>Last Month<KeyboardArrowDown/></Date></PercentVal>
+   <ValueTitle>{value.value}</ValueTitle>
+   <TextVal style={{marginTop: '-17px'}}>{value.title}</TextVal>
+   <PercentVal color={handleColors(value)} style={{marginTop: '-10px'}}><Timeline style={{fontSize: '14px'}}  />{value.percent}%<Date style={{marginLeft: '8px'}}>{value.date}<KeyboardArrowDown/></Date></PercentVal>
     </Values>
 </Items>
-
-<Items>
-<img src={iconB} alt="alt" style={{width: '100px'}} />
-    <Values>
-   <ValueTitle>N478,520</ValueTitle>
-   <TextVal style={{marginTop: '-17px'}}>Total Revenue</TextVal>
-   <PercentVal style={{marginTop: '-10px'}}><Timeline style={{fontSize: '14px'}}/>0.24%<Date>Last Month<KeyboardArrowDown/></Date></PercentVal>
-    </Values>
-</Items>
-
-<Items>
-<img src={iconC} alt="alt" style={{width: '100px'}} />
-    <Values>
-   <ValueTitle>154,872</ValueTitle>
-   <TextVal style={{marginTop: '-17px'}}>Total Users</TextVal>
-   <PercentVal style={{marginTop: '-10px'}}><Timeline style={{fontSize: '14px'}}/>1.64%<Date>Last Month<KeyboardArrowDown/></Date></PercentVal>
-    </Values>
-</Items>
-
-<Items>
-<img src={iconD} alt="alt" style={{width: '100px'}} />
-    <Values>
-   <ValueTitle>167</ValueTitle>
-   <TextVal style={{marginTop: '-17px'}}>Total Subscriptions</TextVal>
-   <PercentVal style={{marginTop: '-10px'}}><Timeline style={{fontSize: '14px'}}/>0.00%<Date>Last Month<KeyboardArrowDown/></Date></PercentVal>
-    </Values>
-</Items>
+                )
+            })
+}
             </Content>
         </Wrapper>
     </Container>
