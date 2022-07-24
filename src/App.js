@@ -1,6 +1,6 @@
 // import Navbar from './components/Navbar'
 import {ThemeProvider} from "styled-components";
-import {Home, Investment, Support, Settings, Modal} from './pages'
+import {Home, Investment, Support, Settings, Modal, Profile} from './pages'
 import styled from 'styled-components'
 import {Sidebar, Navbar} from './components'
 import {
@@ -60,6 +60,7 @@ useEffect(() => {
        <Route exact path="/investment" element={<Investment/>}/>
         <Route exact path="/support" element={<Support/>}/>
         <Route exact path="/settings" element={<Settings/>}/>
+        <Route exact path="/profile" element={<Profile/>}/>
       </Routes>
       
       </Main>

@@ -12,3 +12,5 @@ export {default as Transactions} from './Transactions/Transactions'
 export {default as Checkbox} from './Checkbox/Checkbox.tsx'
 export {default as RadioButton} from './RadioButton/RadioButton'
 export {default as SwitchSlide} from './SwitchSlide/SwitchSlide.tsx'
+export {default as ProfileCont} from './ProfileContent/ProfileCont'
+

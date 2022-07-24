@@ -20,6 +20,7 @@ const Wrapper = styled.div`
 display: flex;
 padding: 0px 40px;
 padding-left: 0.7rem !important;
+padding-bottom: 10px !important;
 width: 100%;
 height: 100%;
 ${'' /* background: red; */}
@@ -143,6 +144,9 @@ name: 'Account',
 },
 {
 name: 'Notifications',
+},
+{
+name: 'Security & Permissions',
 },
 ];
 

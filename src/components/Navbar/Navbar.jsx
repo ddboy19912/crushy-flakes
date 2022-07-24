@@ -6,6 +6,7 @@ import {useLocation} from 'react-router-dom'
 // import {useGlobalContext} from '../../context'
 import { useSelector, useDispatch } from 'react-redux'
 import {toggleDropdown, openModal} from '../../features/dash/dashSlice'
+import {Link} from 'react-router-dom'
 
 
 const Container = styled.div`
@@ -121,6 +122,14 @@ margin-left: 16px;
 
 `
 
+const NavLink = styled(Link)`
+text-decoration: none;
+color: black;
+  &:hover {
+     ${'' /* background-color: #1E294D; */}
+  }
+`
+
 
 const Navbar = () => {
 
@@ -142,7 +151,7 @@ if (pathname === '/') {
 else if (pathname === '/support'){
     setCurrent('Support')
 }
-else if (pathname === '/settings'){
+else if (pathname === '/settings' || pathname === '/profile'){
     setCurrent('Settings')
 }else if (pathname === '/investment'){
     setCurrent('Investment')
@@ -173,8 +182,8 @@ else if (pathname === '/settings'){
  <DropWrap>
  <Drop1> 
  <Div> 
- <h4>View Profile</h4>
-    <h4>Settings</h4>
+ <h4><NavLink to='/profile'>View Profile</NavLink></h4>
+    <h4><NavLink to='/settings'>Settings</NavLink></h4>
     </Div>
     </Drop1>
 <Drop2 onClick={() => dispatch(openModal())} >
