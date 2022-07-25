@@ -13,4 +13,7 @@ export {default as Checkbox} from './Checkbox/Checkbox.tsx'
 export {default as RadioButton} from './RadioButton/RadioButton'
 export {default as SwitchSlide} from './SwitchSlide/SwitchSlide.tsx'
 export {default as ProfileCont} from './ProfileContent/ProfileCont'
+export {default as Button} from './Button/Button'
+export {default as Basics} from './Basics/Basics'
+export {default as Contact} from './Contact/Contact'
 

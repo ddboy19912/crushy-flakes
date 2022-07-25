@@ -3,6 +3,7 @@ import React from 'react'
 import styled from 'styled-components'
 import {useDispatch} from 'react-redux'
 import {closeModal} from '../../features/dash/dashSlice'
+import {Button} from '../../components'
 
 
 const Overlay = styled.div`
@@ -38,16 +39,7 @@ const H2 = styled.h2`
 `
 const Text = styled.p`
 color: gray;
-`
-const Button = styled.button`
-background: #2050F5;
-border-radius: 4px;
-width: 166px;
-height: 50px;
-border: none;
-color: #FFFFFF;
-margin-top: 2rem;
-cursor: pointer;
+margin-bottom: 2.5rem;
 `
 
 const Div = styled.div`
@@ -70,7 +62,7 @@ const dispatch = useDispatch();
     <Close style={{cursor: 'pointer', width: '10%', background: 'white', marginLeft: '22rem'}} onClick={() => dispatch(closeModal())}  />
     <H2>Log Out</H2>
     <Text>Are you sure you want to log out ?</Text>
-    <Button>Continue</Button>
+    <Button value='Continue' />
     </Div>
     </ModalBox>
     </Overlay>
