@@ -12,6 +12,7 @@ border-radius: 10px;
 height: 332px;
 width: 778px;
 margin-top: 3.5rem;
+box-shadow: 0px 0px 4px rgba(122, 128, 126, 0.2);
 `
 const TopBar = styled.div`
 background: #ECEEF2;
