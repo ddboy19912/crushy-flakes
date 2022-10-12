@@ -1,13 +1,12 @@
-import React from "react";
-import styled from "styled-components";
-import { KeyboardArrowDown } from "@material-ui/icons";
+import React from 'react';
+import styled from 'styled-components';
+import { KeyboardArrowDown } from '@material-ui/icons';
 // import Tables from './Tables'
 // import Table from './Table'
-import { Table1 } from "../";
+import { Table1 } from '../';
 
 const Container = styled.div`
   display: flex;
-  margin-top: 24px;
   width: 100%;
   height: 588px;
   background: #ffffff;
@@ -21,7 +20,7 @@ const Wrapper = styled.div`
   padding: 0px 40px;
   flex-direction: column;
   width: 100%;
-  ${"" /* background: red; */}
+  ${'' /* background: red; */}
   max-height: 500px !important;
 `;
 const Top = styled.div`
@@ -29,14 +28,14 @@ const Top = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  ${"" /* background-color: red; */}
+  ${'' /* background-color: red; */}
 `;
 const Bottom = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
-  ${"" /* height: 100%; */}
-  ${"" /* background-color: blue; */}
+  ${'' /* height: 100%; */}
+  ${'' /* background-color: blue; */}
 `;
 
 const Date = styled.div`

@@ -8,11 +8,13 @@ import { toggleDropdown, openModal } from '../../redux/features/dash/dashSlice';
 import { Link } from 'react-router-dom';
 
 const Container = styled.div`
-  display: flex;
-  max-width: 100%;
-  height: 80px;
+  display: none;
+  /* max-width: 100%; */
+  height: 70px;
+  /* display: flex; */
+  align-items: center;
   background-color: white;
-  position: sticky;
+  /* position: static; */
   top: 0;
   z-index: 9;
   box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.14s);

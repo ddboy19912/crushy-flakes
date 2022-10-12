@@ -122,7 +122,8 @@
   font-family: 'Athletics';
   src: url('./fonts/Athletics-ExtraBoldItalic.eot');
   src: local('Athletics ExtraBold Italic'), local('Athletics-ExtraBoldItalic'),
-    url('./fonts/Athletics-ExtraBoldItalic.eot?#iefix') format('embedded-opentype'),
+    url('./fonts/Athletics-ExtraBoldItalic.eot?#iefix')
+      format('embedded-opentype'),
     url('./fonts/Athletics-ExtraBoldItalic.woff2') format('woff2'),
     url('./fonts/Athletics-ExtraBoldItalic.woff') format('woff'),
     url('./fonts/Athletics-ExtraBoldItalic.ttf') format('truetype');
@@ -142,17 +143,24 @@
   font-style: italic;
 }
 
-
-
-*{
-font-family: 'Athletics' !important;
+* {
+  font-family: 'Athletics' !important;
+  box-sizing: border-box;
+  /* height: 100vh; */
 }
 
-
 body {
-margin: 0;
-  padding: 0;
-  outline: 0;
-  box-sizing: border-box !important;
-  /* font-family: 'Lato', sans-serif !important; */
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgb(216, 216, 216);
+  border-radius: 40px;
+}
+::-webkit-scrollbar-track {
+  background-color: transparent;
 }

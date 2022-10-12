@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Timeline } from '@material-ui/icons';
-import { InvestData } from './InvestmentData';
+import React from "react";
+import styled from "styled-components";
+import { KeyboardArrowDown, Timeline } from "@material-ui/icons";
+import { InvestData } from "./InvestmentData";
 
 const Container = styled.div`
   display: flex;
@@ -26,7 +26,7 @@ const Wrapper = styled.div`
 
 const Title = styled.h2``;
 const ValueTitle = styled(Title)`
-  font-size: 32px;
+  font-size: 22px;
   font-weight: 800;
 `;
 const Text = styled.p`
@@ -44,7 +44,6 @@ const PercentVal = styled(Text)`
   line-height: 20px;
   display: flex;
   align-items: center;
-  margin-top: -1.5rem;
   color: ${({ color }) => color};
 `;
 
@@ -59,23 +58,17 @@ const Content = styled.div`
 `;
 const Items = styled.div`
   display: flex;
-  flex-direction: column;
   gap: 0.35rem;
-  /* padding: 0 20px; */
-  padding-left: 2rem;
-  align-items: flex-start;
-  align-content: space-around;
+  padding: 0 5px;
+  align-items: center;
   max-width: 100%;
   height: inherit;
   background: #ffffff;
-  border-radius: 8px;
-  justify-content: center;
 `;
 const Values = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: -1.5rem;
 `;
 const Date = styled.div`
   display: flex;
@@ -86,16 +79,12 @@ const Date = styled.div`
   font-size: 12px;
   margin-left: 0.35rem;
 `;
-const Flex = styled.div`
-  display: flex;
-  align-items: center;
-`;
 
 const InvestmentStat = () => {
   const handleColors = (InvestData) => {
-    if (InvestData.percent > 0) return '#4BDE97';
-    if (InvestData.percent < 0) return 'red';
-    return 'orange';
+    if (InvestData.percent > 0) return "#4BDE97";
+    if (InvestData.percent < 0) return "red";
+    return "orange";
   };
 
   const exampleValues = [-1, 0, 1];
@@ -111,20 +100,24 @@ const InvestmentStat = () => {
           {InvestData.map((value) => {
             return (
               <Items key={value.title}>
-                <Flex>
-                  <img src={value.img} alt="alt" style={{ maxWidth: '45px' }} />
-                  <TextVal>{value.title}</TextVal>
-                </Flex>
+                <img src={value.img} alt="alt" style={{ maxWidth: "65px" }} />
                 <Values>
                   <ValueTitle>{value.value}</ValueTitle>
+                  <TextVal style={{ marginTop: "-17px" }}>
+                    {value.title}
+                  </TextVal>
+                  <PercentVal
+                    color={handleColors(value)}
+                    style={{ marginTop: "-10px" }}
+                  >
+                    <Timeline style={{ fontSize: "14px" }} />
+                    {value.percent}%
+                    <Date>
+                      {value.date}
+                      <KeyboardArrowDown />
+                    </Date>
+                  </PercentVal>
                 </Values>
-                <PercentVal
-                  color={handleColors(value)}
-                  // style={{ marginTop: '-10px' }}
-                >
-                  <Timeline style={{ fontSize: '14px' }} />
-                  {value.percent}%<Date>{value.date}</Date>
-                </PercentVal>
               </Items>
             );
           })}

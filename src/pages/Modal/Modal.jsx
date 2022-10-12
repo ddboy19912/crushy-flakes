@@ -8,7 +8,6 @@ import { Button } from '../../components';
 const Overlay = styled.div`
   height: 100vh;
   width: 100%;
-  ${'' /* overflow: hidden; */}
   top: 0;
   left: 0;
   bottom: 0;
