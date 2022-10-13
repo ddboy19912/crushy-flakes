@@ -140,7 +140,7 @@ const Navbar = () => {
       setCurrent('Support');
     } else if (pathname === '/settings' || pathname === '/profile') {
       setCurrent('Settings');
-    } else if (pathname === '/campaign') {
+    } else if (pathname === '/campaign' || '/create-campaign') {
       setCurrent('Campaigns');
     } else if (pathname === '/uploads') {
       setCurrent('Bulk Uploads');
