@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Pie } from '@ant-design/plots';
 
-const PieChart = () => {
+const PieChart = ({ title }) => {
   const data = [
     {
       type: 'New Users',
@@ -18,6 +18,7 @@ const PieChart = () => {
     angleField: 'value',
     colorField: 'type',
     radius: 0.9,
+    innerRadius: 0.6,
     label: {
       type: 'inner',
       offset: '-30%',
@@ -32,6 +33,17 @@ const PieChart = () => {
         type: 'element-active',
       },
     ],
+    statistic: {
+      title: false,
+      content: {
+        style: {
+          whiteSpace: 'pre-wrap',
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+        },
+        content: `${title}`,
+      },
+    },
     color: ['#061031', '#F4BE37'],
   };
   return <Pie {...config} />;

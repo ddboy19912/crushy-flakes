@@ -11,6 +11,7 @@ import {
   AreaGraph,
   InvestmentStat,
   PieChart,
+  SliderColumn,
   StackedArea,
   Statistics,
   Transactions,
@@ -183,7 +184,29 @@ const Home = () => {
           </Card>
         </Grid>
         <Grid>
-          <Card></Card>
+          <div
+            style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}
+          >
+            <Card
+              style={{ height: '300px', display: 'flex', alignItems: 'center' }}
+            >
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  marginTop: '2rem',
+                }}
+              >
+                <SliderColumn />
+              </div>
+            </Card>
+            <Card style={{ height: '100%' }}>
+              <div>
+                <h1>Tasks</h1>
+                <h1>Campaigns Data</h1>
+              </div>
+            </Card>
+          </div>
           <Card>
             <Flex>
               <InvestorTitle>Usage Statistics</InvestorTitle>
@@ -192,8 +215,8 @@ const Home = () => {
                 <KeyboardArrowDown />
               </Flex2>
             </Flex>
-            <PieChart />
-            <PieChart />
+            <PieChart title="50.7k Web Visits" />
+            <PieChart title="50.7k App Visits" />
           </Card>
         </Grid>
         <Transactions />

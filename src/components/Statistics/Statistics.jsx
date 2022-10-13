@@ -88,7 +88,7 @@ const Bold = styled.h1`
 const Statistics = () => {
   return (
     <>
-      <Title>Campaign Summary</Title>
+      {/* <Title>Campaign Summary</Title> */}
       <Container>
         <Wrapper>
           <Top>

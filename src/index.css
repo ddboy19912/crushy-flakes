@@ -152,7 +152,7 @@
 body {
   margin: 0 !important;
   padding: 0 !important;
-  /* background-color: #061031 !important; */
+  background: #eef0f8 !important;
 }
 
 ::-webkit-scrollbar {
