@@ -161,22 +161,7 @@ const Home = () => {
           >
             <p style={{ marginTop: '-0.5rem' }}>Daily Stats</p>
             <div style={{ marginTop: '-1rem' }}>
-              {/* <Swiper
-                spaceBetween={30}
-                centeredSlides={true}
-                autoplay={{
-                  delay: 2500,
-                  disableOnInteraction: false,
-                }}
-                pagination={{
-                  clickable: true,
-                }}
-                navigation={true}
-                modules={[Autoplay, Pagination, Navigation]}
-                className="mySwiper"
-              > */}
               <AreaGraph />
-              {/* </Swiper> */}
             </div>
           </Card>
           <Card style={{ height: '250px' }}>
