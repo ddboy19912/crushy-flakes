@@ -48,7 +48,7 @@ const BulkContainer = styled.div`
 
 const Top = styled.div`
   margin-top: 2rem;
-  width: 100%;
+  width: 90%;
   height: 50px;
 `;
 const Info = styled.div`
@@ -93,34 +93,6 @@ const BulkUploads = () => {
     );
   }
 
-  function StepCurrent() {
-    return (
-      <svg
-        style={{ marginLeft: 15 }}
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <circle cx="12" cy="12" r="9" stroke="#ED7D31" stroke-width="6" />
-      </svg>
-    );
-  }
-
-  function StepNext() {
-    return (
-      <svg
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <circle cx="12" cy="12" r="12" fill="#D8D8D8" />
-      </svg>
-    );
-  }
   return (
     <Container>
       <Wrapper>
@@ -147,8 +119,12 @@ const BulkUploads = () => {
                     />
                   </div>
                   <div
-                    className="steps-text"
-                    style={{ width: 60, marginTop: 60 }}
+                    style={{
+                      width: 120,
+                      marginTop: 60,
+                      display: 'flex',
+                      justifyContent: 'center',
+                    }}
                   >
                     Upload File
                   </div>
@@ -174,7 +150,13 @@ const BulkUploads = () => {
                   </div>
                   <div
                     className="steps-text"
-                    style={{ width: 60, marginTop: 60, marginLeft: 0 }}
+                    style={{
+                      width: 120,
+                      marginTop: 60,
+                      marginLeft: 0,
+                      display: 'flex',
+                      justifyContent: 'center',
+                    }}
                   >
                     Review Transfer
                   </div>
@@ -199,8 +181,13 @@ const BulkUploads = () => {
                     />
                   </div>
                   <div
-                    className="steps-text"
-                    style={{ width: 60, marginTop: 60, marginLeft: 0 }}
+                    style={{
+                      width: 120,
+                      marginTop: 60,
+                      marginLeft: 0,
+                      display: 'flex',
+                      justifyContent: 'center',
+                    }}
                   >
                     Upload
                   </div>
@@ -210,8 +197,7 @@ const BulkUploads = () => {
           </ProgressBar>
         </Top>
         <BulkContainer>
-          <UploaderComponent type="file" />
-          {/* <Info>
+          <Info>
             <InfoPara>
               Bulk upload your transfers in CSV format.{' '}
               <span>
@@ -221,7 +207,7 @@ const BulkUploads = () => {
           </Info>
           <form>
             <DragnDrop title="Drop files here to upload" />
-          </form> */}
+          </form>
         </BulkContainer>
       </Wrapper>
     </Container>

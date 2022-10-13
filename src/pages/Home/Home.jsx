@@ -1,7 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import { KeyboardArrowDown } from '@material-ui/icons';
-
+import { Swiper, SwiperSlide } from 'swiper/react';
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import { Autoplay, Pagination, Navigation } from 'swiper';
 import {
   AreaGraph,
   InvestmentStat,
@@ -154,8 +159,25 @@ const Home = () => {
               padding: '0rem 1rem',
             }}
           >
-            <h3>Daily Stats</h3>
-            <AreaGraph />
+            <p style={{ marginTop: '-0.5rem' }}>Daily Stats</p>
+            <div style={{ marginTop: '-1rem' }}>
+              {/* <Swiper
+                spaceBetween={30}
+                centeredSlides={true}
+                autoplay={{
+                  delay: 2500,
+                  disableOnInteraction: false,
+                }}
+                pagination={{
+                  clickable: true,
+                }}
+                navigation={true}
+                modules={[Autoplay, Pagination, Navigation]}
+                className="mySwiper"
+              > */}
+              <AreaGraph />
+              {/* </Swiper> */}
+            </div>
           </Card>
           <Card style={{ height: '250px' }}>
             <Flex>
