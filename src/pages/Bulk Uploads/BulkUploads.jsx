@@ -18,12 +18,13 @@ const Container = styled.div`
   border: 0.5px solid #e1e5e4;
   box-shadow: 0px 0px 30px rgba(122, 128, 126, 0.1);
   border-radius: 4px;
+  /* margin-bottom: 2rem; */
 `;
 
 const Wrapper = styled.div`
   padding: 20px 34px;
   width: 95%;
-  height: 100%;
+  height: 90%;
   display: flex;
   background: #fff;
   flex-direction: column;
