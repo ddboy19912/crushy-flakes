@@ -22,6 +22,11 @@ const FirstGrid = styled.div`
 
 const CampaignImg = styled.img`
   object-fit: cover;
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 
 const GraphCard = styled.div`
@@ -78,9 +83,10 @@ const Campaign = () => {
             style={{
               width: '100%',
               height: '250px',
-              //   background: 'black',
+              borderRadius: '10px',
               display: 'flex',
               alignItems: 'center',
+              overflow: 'hidden',
             }}
           >
             <CampaignImg
