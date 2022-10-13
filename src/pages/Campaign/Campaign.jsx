@@ -90,7 +90,7 @@ const Campaign = () => {
               overflow: 'hidden',
             }}
           >
-            <Link to="/create-campaign">
+            <Link to="/create-campaign" style={{ width: '100%' }}>
               <CampaignImg
                 src={campaignBanner}
                 alt=""
@@ -100,11 +100,13 @@ const Campaign = () => {
             </Link>
           </div>
           <GraphCard>
-            <AreaGraph />
+            <div style={{ width: '100%' }}>
+              <AreaGraph />
+            </div>
           </GraphCard>
         </FirstGrid>
         <ThirdCard>
-          <div>
+          <div style={{ width: '100%' }}>
             <PlotGraph />
           </div>
         </ThirdCard>

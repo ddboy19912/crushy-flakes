@@ -12,7 +12,7 @@ const Container = styled.div`
   width: 100%;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  height: 100vh;
   background: #eef0f8;
   height: 100vh;
   border: 0.5px solid #e1e5e4;
@@ -80,26 +80,12 @@ const Circle = styled.div`
 `;
 
 const BulkUploads = () => {
-  function StepComplete() {
-    return (
-      <svg
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <circle cx="12" cy="12" r="12" fill="#ED7D31" />
-      </svg>
-    );
-  }
-
   return (
     <Container>
       <Wrapper>
         <Top>
           <ProgressBar
-            percent={100}
+            percent={20}
             filledBackground="linear-gradient(to right, #1488cc, #2b32b2)"
           >
             <Step transition="scale">

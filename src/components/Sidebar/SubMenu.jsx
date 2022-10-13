@@ -28,6 +28,7 @@ const SidebarLink = styled(Link)`
   align-items: center;
   padding: 20px;
   list-style: none;
+  width: 100%;
   height: 60px;
   text-decoration: none;
   font-size: 18px;
@@ -67,7 +68,7 @@ const SubMenu = ({ item }) => {
   const showSubnav = () => setSubnav(!subnav);
 
   return (
-    <>
+    <div style={{ width: '100%' }}>
       <SidebarLink to={item.to} onClick={item.subMenus && showSubnav}>
         <div style={{ display: 'flex', alignItems: 'center' }}>
           {item.icon}
@@ -89,7 +90,7 @@ const SubMenu = ({ item }) => {
             </DropdownLink>
           );
         })}
-    </>
+    </div>
   );
 };
 

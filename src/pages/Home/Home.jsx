@@ -53,7 +53,6 @@ const Grid = styled.div`
 
 const Card = styled.div`
   background: white;
-  /* height: 250px; */
   width: 100%;
   border-radius: 8px;
   padding: 0px 15px;
@@ -146,7 +145,7 @@ const Home = () => {
       <Wrapper>
         <InvestmentStat />
         <GraphCard>
-          <div>
+          <div style={{ width: '100%' }}>
             <StackedArea />
           </div>
         </GraphCard>
@@ -161,7 +160,7 @@ const Home = () => {
             }}
           >
             <p style={{ marginTop: '-0.5rem' }}>Daily Stats</p>
-            <div style={{ marginTop: '-1rem' }}>
+            <div style={{ marginTop: '-1rem', width: '100%' }}>
               <AreaGraph />
             </div>
           </Card>
@@ -195,6 +194,7 @@ const Home = () => {
                   display: 'flex',
                   alignItems: 'center',
                   marginTop: '2rem',
+                  width: '100%',
                 }}
               >
                 <SliderColumn />
@@ -215,8 +215,10 @@ const Home = () => {
                 <KeyboardArrowDown />
               </Flex2>
             </Flex>
-            <PieChart title="50.7k Web Visits" />
-            <PieChart title="50.7k App Visits" />
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+              <PieChart title="50.7k Web Visits" />
+              <PieChart title="50.7k App Visits" />
+            </div>
           </Card>
         </Grid>
         <Transactions />

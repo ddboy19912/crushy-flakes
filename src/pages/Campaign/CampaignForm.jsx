@@ -191,7 +191,7 @@ const CampaignForm = () => {
                   onBlur={handleBlur}
                   className={errors.email && touched.email ? 'input-error' : ''}
                 />
-                <Dollarbg>$</Dollarbg>
+                {/* <Dollarbg>$</Dollarbg> */}
               </div>
             </div>
 

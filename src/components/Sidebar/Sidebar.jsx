@@ -124,7 +124,7 @@ const Sidebar = () => {
             <Status>Online</Status>
           </span>
         </TitleContainer>
-        <div>
+        <div style={{ width: '100%' }}>
           {' '}
           {SidebarData.map((item, index) => {
             return <SubMenu item={item} index={index} />;
