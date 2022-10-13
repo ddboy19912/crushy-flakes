@@ -140,11 +140,11 @@ const Navbar = () => {
       setCurrent('Support');
     } else if (pathname === '/settings' || pathname === '/profile') {
       setCurrent('Settings');
-    } else if (pathname === '/campaign' || '/create-campaign') {
+    } else if (pathname === '/campaign' || pathname === '/create-campaign') {
       setCurrent('Campaigns');
     } else if (pathname === '/uploads') {
       setCurrent('Bulk Uploads');
-    } else if (pathname === '/cms' || pathname === '/profile') {
+    } else if (pathname === '/cms') {
       setCurrent('Content Management');
     } else if (pathname === '/messages') {
       setCurrent('Messages');
