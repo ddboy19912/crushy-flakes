@@ -8,7 +8,6 @@ import { toggleDropdown, openModal } from '../../redux/features/dash/dashSlice';
 import { Link } from 'react-router-dom';
 
 const Container = styled.div`
-  display: none;
   /* max-width: 100%; */
   height: 70px;
   /* display: flex; */

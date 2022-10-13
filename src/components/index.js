@@ -20,3 +20,4 @@ export { default as DragnDrop } from './DragandDrop/DragnDrop.jsx';
 export { default as AreaGraph } from './Area/Area.jsx';
 export { default as PlotGraph } from './PlotGraph/PlotGraph.jsx';
 export { default as StackedArea } from './StackedArea/StackedArea.jsx';
+export { default as PieChart } from './Pie/PieChart.jsx';

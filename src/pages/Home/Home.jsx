@@ -3,7 +3,9 @@ import styled from 'styled-components';
 import { KeyboardArrowDown } from '@material-ui/icons';
 
 import {
+  AreaGraph,
   InvestmentStat,
+  PieChart,
   StackedArea,
   Statistics,
   Transactions,
@@ -45,7 +47,7 @@ const Grid = styled.div`
 
 const Card = styled.div`
   background: white;
-  height: 250px;
+  /* height: 250px; */
   width: 100%;
   border-radius: 8px;
   padding: 0px 15px;
@@ -72,6 +74,9 @@ const ListCard = styled.div`
   box-shadow: 0px 0px 30px rgba(122, 128, 126, 0.1);
   display: flex;
   align-items: center;
+  gap: 1rem;
+  padding: 0rem 1rem;
+  border-radius: 8px;
 `;
 
 const Scroll = styled.div`
@@ -83,6 +88,13 @@ const Scroll = styled.div`
   width: 100%;
 `;
 
+const Image = styled.img`
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  border-radius: 50%;
+`;
+
 const InvestorTitle = styled.h2`
   font-size: 20px;
 `;
@@ -91,15 +103,35 @@ const Home = () => {
   const InvestorData = [
     {
       name: 'Oga Sabinus',
+      img: 'https://topnaija.ng/wp-content/uploads/2022/01/image_editor_output_image366043119-1643647460799.jpg',
     },
     {
       name: 'Bosco Mosco',
+      img: 'https://images.pexels.com/photos/936117/pexels-photo-936117.jpeg?cs=srgb&dl=pexels-nappy-936117.jpg&fm=jpg',
     },
     {
       name: 'Richard West',
+      img: 'https://images.pexels.com/photos/2024901/pexels-photo-2024901.jpeg?cs=srgb&dl=pexels-zack-jarosz-2024901.jpg&fm=jpg',
     },
     {
       name: 'John Bolt',
+      img: 'https://images.pexels.com/photos/1181391/pexels-photo-1181391.jpeg?cs=srgb&dl=pexels-christina-morillo-1181391.jpg&fm=jpg',
+    },
+    {
+      name: 'Richard West',
+      img: 'https://images.pexels.com/photos/2024901/pexels-photo-2024901.jpeg?cs=srgb&dl=pexels-zack-jarosz-2024901.jpg&fm=jpg',
+    },
+    {
+      name: 'John Bolt',
+      img: 'https://images.pexels.com/photos/1181391/pexels-photo-1181391.jpeg?cs=srgb&dl=pexels-christina-morillo-1181391.jpg&fm=jpg',
+    },
+    {
+      name: 'Richard West',
+      img: 'https://images.pexels.com/photos/2024901/pexels-photo-2024901.jpeg?cs=srgb&dl=pexels-zack-jarosz-2024901.jpg&fm=jpg',
+    },
+    {
+      name: 'John Bolt',
+      img: 'https://images.pexels.com/photos/1181391/pexels-photo-1181391.jpeg?cs=srgb&dl=pexels-christina-morillo-1181391.jpg&fm=jpg',
     },
   ];
 
@@ -113,8 +145,19 @@ const Home = () => {
           </div>
         </GraphCard>
         <Grid>
-          <Card></Card>
-          <Card>
+          <Card
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              height: '250px',
+              padding: '0rem 1rem',
+            }}
+          >
+            <h3>Daily Stats</h3>
+            <AreaGraph />
+          </Card>
+          <Card style={{ height: '250px' }}>
             <Flex>
               <InvestorTitle>Top Investors</InvestorTitle>
               <Flex2>
@@ -125,10 +168,25 @@ const Home = () => {
             <Scroll>
               {InvestorData.map((item, i) => (
                 <ListCard key={i}>
+                  <Image src={item.img} alt="" />
                   <h3>{item.name}</h3>
                 </ListCard>
               ))}
             </Scroll>
+          </Card>
+        </Grid>
+        <Grid>
+          <Card></Card>
+          <Card>
+            <Flex>
+              <InvestorTitle>Usage Statistics</InvestorTitle>
+              <Flex2>
+                July 2022
+                <KeyboardArrowDown />
+              </Flex2>
+            </Flex>
+            <PieChart />
+            <PieChart />
           </Card>
         </Grid>
         <Transactions />

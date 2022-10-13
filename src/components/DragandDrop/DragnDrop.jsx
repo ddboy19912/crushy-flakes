@@ -60,7 +60,7 @@ const DragnDrop = (props) => {
               />
               <div className="drop-file-preview__item__info">
                 <p>{item.name}</p>
-                <p>{item.size}B</p>
+                <p> SIZE: {item.size}B</p>
               </div>
               <span
                 className="drop-file-preview__item__del"

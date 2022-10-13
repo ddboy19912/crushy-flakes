@@ -2,6 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { DragnDrop } from '../../components';
 import { Link } from 'react-router-dom';
+import 'react-step-progress-bar/styles.css';
+import { ProgressBar, Step } from 'react-step-progress-bar';
+import { UploaderComponent } from '@syncfusion/ej2-react-inputs';
 
 const Container = styled.div`
   display: flex;
@@ -44,7 +47,9 @@ const BulkContainer = styled.div`
 `;
 
 const Top = styled.div`
-  /* display: flex; */
+  margin-top: 2rem;
+  width: 100%;
+  height: 50px;
 `;
 const Info = styled.div`
   width: 100%;
@@ -66,14 +71,147 @@ const InfoPara = styled.p`
 const StyledLink = styled(Link)`
   color: orange;
 `;
+const Circle = styled.div`
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: red;
+`;
 
 const BulkUploads = () => {
+  function StepComplete() {
+    return (
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle cx="12" cy="12" r="12" fill="#ED7D31" />
+      </svg>
+    );
+  }
+
+  function StepCurrent() {
+    return (
+      <svg
+        style={{ marginLeft: 15 }}
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle cx="12" cy="12" r="9" stroke="#ED7D31" stroke-width="6" />
+      </svg>
+    );
+  }
+
+  function StepNext() {
+    return (
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle cx="12" cy="12" r="12" fill="#D8D8D8" />
+      </svg>
+    );
+  }
   return (
     <Container>
       <Wrapper>
-        <Top>Progress Bar</Top>
+        <Top>
+          <ProgressBar
+            percent={100}
+            filledBackground="linear-gradient(to right, #1488cc, #2b32b2)"
+          >
+            <Step transition="scale">
+              {({ accomplished }) => (
+                <div
+                  style={{
+                    display: 'flex',
+                    height: 100,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}
+                >
+                  <div style={{ marginTop: 0, position: 'absolute' }}>
+                    <Circle
+                      style={{
+                        background: `${accomplished ? '#1488cc' : 'red'}`,
+                      }}
+                    />
+                  </div>
+                  <div
+                    className="steps-text"
+                    style={{ width: 60, marginTop: 60 }}
+                  >
+                    Upload File
+                  </div>
+                </div>
+              )}
+            </Step>
+            <Step transition="scale">
+              {({ accomplished }) => (
+                <div
+                  style={{
+                    display: 'flex',
+                    height: 100,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}
+                >
+                  <div style={{ marginTop: 0, position: 'absolute' }}>
+                    <Circle
+                      style={{
+                        background: `${accomplished ? '#2b32b2' : '#d8d8d8'}`,
+                      }}
+                    />
+                  </div>
+                  <div
+                    className="steps-text"
+                    style={{ width: 60, marginTop: 60, marginLeft: 0 }}
+                  >
+                    Review Transfer
+                  </div>
+                </div>
+              )}
+            </Step>
+            <Step transition="scale">
+              {({ accomplished }) => (
+                <div
+                  style={{
+                    display: 'flex',
+                    height: 100,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}
+                >
+                  <div style={{ marginTop: 0, position: 'absolute' }}>
+                    <Circle
+                      style={{
+                        background: `${accomplished ? '#2b32b2' : '#d8d8d8'}`,
+                      }}
+                    />
+                  </div>
+                  <div
+                    className="steps-text"
+                    style={{ width: 60, marginTop: 60, marginLeft: 0 }}
+                  >
+                    Upload
+                  </div>
+                </div>
+              )}
+            </Step>
+          </ProgressBar>
+        </Top>
         <BulkContainer>
-          <Info>
+          <UploaderComponent type="file" />
+          {/* <Info>
             <InfoPara>
               Bulk upload your transfers in CSV format.{' '}
               <span>
@@ -83,7 +221,7 @@ const BulkUploads = () => {
           </Info>
           <form>
             <DragnDrop title="Drop files here to upload" />
-          </form>
+          </form> */}
         </BulkContainer>
       </Wrapper>
     </Container>

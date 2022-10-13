@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import campaignBanner from '../../images/1st stat.png';
-
 import { AreaGraph, PlotGraph, Statistics, Table1 } from '../../components';
 
 const Container = styled.div`
@@ -62,11 +61,11 @@ const TableCard = styled.div`
   border: 0.5px solid #e1e5e4;
   box-shadow: 0px 0px 30px rgba(122, 128, 126, 0.1);
   border-radius: 8px;
-  padding: 0rem 1rem;
+  padding: 0px 40px;
 `;
 
 const Heading = styled.h2`
-  font-size: 28px;
+  font-size: 22px;
 `;
 
 const Campaign = () => {

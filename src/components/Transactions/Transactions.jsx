@@ -20,7 +20,6 @@ const Wrapper = styled.div`
   padding: 0px 40px;
   flex-direction: column;
   width: 100%;
-  ${'' /* background: red; */}
   max-height: 500px !important;
 `;
 const Top = styled.div`

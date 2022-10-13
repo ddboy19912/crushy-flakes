@@ -1,10 +1,12 @@
-import React from "react";
-import styled from "styled-components";
-import { KeyboardArrowDown, Timeline } from "@material-ui/icons";
-import icon1 from "../../../src/images/ICON1.png";
-import icon2 from "../../../src/images/ICON2.png";
-import icon3 from "../../../src/images/ICON3.png";
-import icon4 from "../../../src/images/icon4.png";
+import React from 'react';
+import styled from 'styled-components';
+import { KeyboardArrowDown, Timeline } from '@material-ui/icons';
+import CampaignOutlinedIcon from '@mui/icons-material/CampaignOutlined';
+import icon1 from '../../../src/images/ICON1.png';
+import icon2 from '../../../src/images/ICON2.png';
+import icon3 from '../../../src/images/ICON3.png';
+import icon4 from '../../../src/images/icon4.png';
+import CampaignOutlined from '@mui/icons-material/CampaignOutlined';
 
 const Container = styled.div`
   display: block;
@@ -15,9 +17,10 @@ const Container = styled.div`
   border-radius: 4px;
 `;
 const Wrapper = styled.div`
-  display: flex;
-  padding: 0px 40px;
-  flex-direction: column;
+  display: grid;
+  padding: 15px 40px;
+  /* flex-direction: column; */
+  grid-template-rows: 10% 90%;
 `;
 const Top = styled.div`
   display: flex;
@@ -35,6 +38,9 @@ const Date = styled.div`
 
 const Title = styled.h2`
   font-size: 22px;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
 `;
 const ValueTitle = styled(Title)`
   font-size: 25px;
@@ -74,84 +80,96 @@ const Values = styled.div`
   justify-content: center;
 `;
 
+const Bold = styled.h1`
+  font-weight: 700;
+  font-size: 26px;
+`;
+
 const Statistics = () => {
   return (
-    <Container>
-      <Wrapper>
-        <Top>
-          <Title>Statistics</Title>
-          <Date>
-            July 2021
-            <KeyboardArrowDown />
-          </Date>
-        </Top>
-        <Content>
-          <Items>
-            <img
-              src={icon1}
-              alt="alt"
-              style={{ width: "80px", height: "80px" }}
-            />
-            <Values>
-              <ValueTitle>230k</ValueTitle>
-              <TextVal style={{ marginTop: "-17px" }}>Sales</TextVal>
-              <PercentVal style={{ marginTop: "-10px" }}>
-                <Timeline style={{ transform: "scale(0.8)" }} />
-                4.07%
-              </PercentVal>
-            </Values>
-          </Items>
+    <>
+      <Title>Campaign Summary</Title>
+      <Container>
+        <Wrapper>
+          <Top>
+            <Title>
+              <CampaignOutlined />
+              <Bold>10 </Bold>
+              Total Campaigns
+            </Title>
+            <Date>
+              July 2021
+              <KeyboardArrowDown />
+            </Date>
+          </Top>
+          <Content>
+            <Items>
+              <img
+                src={icon1}
+                alt="alt"
+                style={{ width: '80px', height: '80px' }}
+              />
+              <Values>
+                <ValueTitle>230k</ValueTitle>
+                <TextVal style={{ marginTop: '-17px' }}>Sales</TextVal>
+                <PercentVal style={{ marginTop: '-10px' }}>
+                  <Timeline style={{ transform: 'scale(0.8)' }} />
+                  4.07%
+                </PercentVal>
+              </Values>
+            </Items>
 
-          <Items>
-            <img
-              src={icon2}
-              alt="alt"
-              style={{ width: "80px", height: "80px" }}
-            />
-            <Values>
-              <ValueTitle>8.549k</ValueTitle>
-              <TextVal style={{ marginTop: "-17px" }}>Customers</TextVal>
-              <PercentVal style={{ marginTop: "-10px" }}>
-                <Timeline style={{ transform: "scale(0.8)" }} />
-                4.07%
-              </PercentVal>
-            </Values>
-          </Items>
+            <Items>
+              <img
+                src={icon2}
+                alt="alt"
+                style={{ width: '80px', height: '80px' }}
+              />
+              <Values>
+                <ValueTitle>8.549k</ValueTitle>
+                <TextVal style={{ marginTop: '-17px' }}>Customers</TextVal>
+                <PercentVal style={{ marginTop: '-10px' }}>
+                  <Timeline style={{ transform: 'scale(0.8)' }} />
+                  4.07%
+                </PercentVal>
+              </Values>
+            </Items>
 
-          <Items>
-            <img
-              src={icon3}
-              alt="alt"
-              style={{ width: "80px", height: "80px" }}
-            />
-            <Values>
-              <ValueTitle>1.423k</ValueTitle>
-              <TextVal style={{ marginTop: "-17px" }}>Products</TextVal>
-              <PercentVal style={{ marginTop: "-10px" }}>
-                <Timeline style={{ transform: "scale(0.8)" }} />
-                4.07%
-              </PercentVal>
-            </Values>
-          </Items>
+            <Items>
+              <img
+                src={icon3}
+                alt="alt"
+                style={{ width: '80px', height: '80px' }}
+              />
+              <Values>
+                <ValueTitle>1.423k</ValueTitle>
+                <TextVal style={{ marginTop: '-17px' }}>Products</TextVal>
+                <PercentVal style={{ marginTop: '-10px' }}>
+                  <Timeline style={{ transform: 'scale(0.8)' }} />
+                  4.07%
+                </PercentVal>
+              </Values>
+            </Items>
 
-          <Items>
-            <img
-              src={icon4}
-              alt="alt"
-              style={{ width: "80px", height: "80px" }}
-            />
-            <Values>
-              <ValueTitle>$9745</ValueTitle>
-              <TextVal style={{ marginTop: "-17px" }}>Revenue</TextVal>
-              <PercentVal style={{ marginTop: "-10px" }}>
-                <Timeline style={{ transform: "scale(0.8)" }} />
-                4.07%
-              </PercentVal>
-            </Values>
-          </Items>
-        </Content>
-      </Wrapper>
-    </Container>
+            <Items>
+              <img
+                src={icon4}
+                alt="alt"
+                style={{ width: '80px', height: '80px' }}
+              />
+              <Values>
+                <ValueTitle>$9745</ValueTitle>
+                <TextVal style={{ marginTop: '-17px' }}>Revenue</TextVal>
+                <PercentVal style={{ marginTop: '-10px' }}>
+                  <Timeline style={{ transform: 'scale(0.8)' }} />
+                  4.07%
+                </PercentVal>
+              </Values>
+            </Items>
+          </Content>
+        </Wrapper>
+      </Container>
+    </>
   );
 };
 

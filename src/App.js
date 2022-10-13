@@ -57,7 +57,7 @@ function App() {
         {/* <Side> */}
         <Sidebar />
         {/* </Side> */}
-        <div style={{ flex: '4' }}>
+        <div style={{ flex: '4', display: 'flex', flexDirection: 'column' }}>
           {' '}
           <Navbar />
           <Routes>

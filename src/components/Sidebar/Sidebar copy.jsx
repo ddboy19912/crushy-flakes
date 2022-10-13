@@ -23,7 +23,6 @@ const TitleContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: -2rem !important;
-  /* background: red; */
   align-items: center;
   justify-content: center;
 `;
@@ -102,7 +101,11 @@ const Circle = styled.div`
 `;
 
 const Sidebar = () => {
-  // const { pathname } = useLocation();
+  const { pathname } = useLocation();
+
+  const [subnav, setSubnav] = useState(false);
+
+  const showSubnav = () => setSubnav(!subnav);
 
   return (
     <Container>
@@ -127,7 +130,29 @@ const Sidebar = () => {
         <div>
           {' '}
           {SidebarData.map((item, index) => {
-            return <SubMenu item={item} index={index} />;
+            return (
+              <div key={index}>
+                <Listed
+                  onClick={item.subMenus && showSubnav}
+                  isActive={pathname === item.to}
+                >
+                  <NavLink to={item.to}>
+                    <NavFlex>
+                      <div style={{ transform: 'scale(0.9)' }}>{item.icon}</div>
+                      {item.label}
+                    </NavFlex>
+                    <span>
+                      {item.subMenus && subnav
+                        ? item.iconOpened
+                        : item.subMenus
+                        ? item.iconClosed
+                        : null}
+                    </span>
+                  </NavLink>
+                </Listed>
+                <SubMenu item={item} subnav={subnav} />
+              </div>
+            );
           })}
         </div>
       </Content>
