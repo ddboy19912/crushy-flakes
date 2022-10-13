@@ -91,7 +91,7 @@ const Statistics = () => {
       {/* <Title>Campaign Summary</Title> */}
       <Container>
         <Wrapper>
-          <Top>
+          {/* <Top>
             <Title>
               <CampaignOutlined />
               <Bold>10 </Bold>
@@ -101,7 +101,7 @@ const Statistics = () => {
               July 2021
               <KeyboardArrowDown />
             </Date>
-          </Top>
+          </Top> */}
           <Content>
             <Items>
               <img
