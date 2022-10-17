@@ -37,7 +37,7 @@ const TextVal = styled(Text)`
   font-size: 16px;
   font-weight: 400;
 `;
-const PercentVal = styled(Text)`
+const PercentVal = styled.div`
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
@@ -118,10 +118,7 @@ const InvestmentStat = () => {
                 <Values>
                   <ValueTitle>{value.value}</ValueTitle>
                 </Values>
-                <PercentVal
-                  color={handleColors(value)}
-                  // style={{ marginTop: '-10px' }}
-                >
+                <PercentVal color={handleColors(value)}>
                   <Timeline style={{ fontSize: '14px' }} />
                   {value.percent}%<Date>{value.date}</Date>
                 </PercentVal>

@@ -22,3 +22,5 @@ export { default as PlotGraph } from './PlotGraph/PlotGraph.jsx';
 export { default as StackedArea } from './StackedArea/StackedArea.jsx';
 export { default as PieChart } from './Pie/PieChart.jsx';
 export { default as SliderColumn } from './SliderColumn/SliderColumn.jsx';
+export { default as CustomInput } from './CustomInput/CustomInput.jsx';
+export { default as CustomSelect } from './CustomSelect/CustomSelect.jsx';

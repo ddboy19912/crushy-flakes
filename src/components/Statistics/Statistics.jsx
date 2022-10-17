@@ -17,16 +17,18 @@ const Container = styled.div`
   border-radius: 4px;
 `;
 const Wrapper = styled.div`
-  display: grid;
+  display: flex;
+  gap: 1.5rem;
   padding: 15px 40px;
-  /* flex-direction: column; */
-  grid-template-rows: 10% 90%;
+  flex-direction: column;
+  /* grid-template-rows: 10% 90%; */
 `;
 const Top = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  height: 15px;
 `;
 const Date = styled.div`
   display: flex;
@@ -91,7 +93,7 @@ const Statistics = () => {
       {/* <Title>Campaign Summary</Title> */}
       <Container>
         <Wrapper>
-          {/* <Top>
+          <Top>
             <Title>
               <CampaignOutlined />
               <Bold>10 </Bold>
@@ -101,7 +103,7 @@ const Statistics = () => {
               July 2021
               <KeyboardArrowDown />
             </Date>
-          </Top> */}
+          </Top>
           <Content>
             <Items>
               <img
