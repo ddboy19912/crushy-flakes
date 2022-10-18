@@ -15,7 +15,7 @@ const Container = styled.div`
   background-color: white;
   /* position: static; */
   top: 0;
-  z-index: 9;
+  /* z-index: 9; */
   box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.14s);
   -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.14);
   -moz-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.14);

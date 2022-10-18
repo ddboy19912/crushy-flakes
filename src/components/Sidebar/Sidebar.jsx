@@ -11,7 +11,7 @@ const Container = styled.aside`
   color: #fff;
   width: 100%;
   flex: 1;
-  z-index: 999;
+  /* z-index: 999; */
   height: 100vh;
   overflow: scroll;
   position: sticky;

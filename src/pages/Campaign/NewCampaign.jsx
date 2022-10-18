@@ -17,12 +17,27 @@ const Wrapper = styled.div`
   height: 100%;
 `;
 
+const Image = styled.img`
+  overflow: hidden;
+  transition: all 0.8s ease-in-out;
+  &:hover {
+    transform: scale(1.1);
+  }
+`;
+
 const NewCampaign = () => {
   return (
     <Container>
       <Wrapper>
-        <div style={{ width: '100', marginTop: '1rem' }}>
-          <img
+        <div
+          style={{
+            width: '100',
+            marginTop: '1rem',
+            overflow: 'hidden',
+            borderRadius: '8px',
+          }}
+        >
+          <Image
             src={campaignBanner}
             alt=""
             width="100%"

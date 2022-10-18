@@ -8,28 +8,22 @@ export const advancedSchema = yup.object().shape({
     .string()
     .min(3, 'title must be at least 3 characters long')
     .required('*Required'),
-  img: yup.string().required('*Required'),
+  interest_rate: yup.number().required('*Required'),
+  tenure: yup.number().required('*Required'),
+  max_amount: yup.number().required('*Required'),
+  issuer: yup
+    .string()
+    .min(3, 'title must be at least 3 characters long')
+    .required('*Required'),
+  product_paper: yup.mixed(),
+  issuer_logo: yup.string().required('*Required'),
   name: yup
     .string()
     .min(3, 'title must be at least 3 characters long')
     .required('*Required'),
-  owner: yup
-    .string()
-    .min(3, 'title must be at least 3 characters long')
-    .required('*Required'),
-  term: yup
-    .string()
-    .oneOf(['designer', 'developer', 'manager', 'other'], 'Invalid Job Type')
-    .required('*Required'),
-  goal: yup
-    .string()
-    .oneOf(['designer', 'developer', 'manager', 'other'], 'Invalid Job Type')
-    .required('*Required'),
-  days: yup
-    .string()
-    .oneOf(['designer', 'developer', 'manager', 'other'], 'Invalid Job Type')
-    .required('*Required'),
-  acceptedTos: yup
-    .boolean()
-    .oneOf([true], 'Please accept the terms of service'),
+  start_date: yup.string().required('*Required'),
+  closing: yup.string().required('*Required'),
+  active: yup.bool(),
+  overview: yup.string().min(50, 'title must be at least 50 characters long'),
+  days: yup.number().required('*Required'),
 });

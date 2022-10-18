@@ -82,7 +82,7 @@ const Values = styled.div`
   justify-content: center;
 `;
 
-const Bold = styled.h1`
+const Bold = styled.span`
   font-weight: 700;
   font-size: 26px;
 `;

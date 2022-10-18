@@ -1,16 +1,17 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-export const testApi = createApi({
-  reducerPath: 'testApi',
+export const mainApi = createApi({
+  reducerPath: 'mainApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://jsonplaceholder.typicode.com',
+    baseUrl: 'https://ganbaru.xyz/admin-api/v1',
+    prepareHeaders: (headers) => {
+      headers.set('X-RapidAPI-Key', process.env.REACT_APP_YOUR_AUTH_KEY);
+      return headers;
+    },
   }),
-  tagTypes: ['Post'],
   endpoints: (builder) => ({
-    getPosts: builder.query({
-      query: () => '/users',
-    }),
+    getOffers: builder.query({ query: () => '/offers' }),
   }),
 });
 
-export const { useGetPostsQuery } = testApi;
+export const { useGetOffersQuery } = mainApi;

@@ -1,6 +1,7 @@
 import { Field, useFormik } from 'formik';
 import React, { useContext, useState } from 'react';
 import { Marginer } from './marginer';
+import { useSelector, useDispatch } from 'react-redux';
 import {
   BoldLink,
   BoxContainer,
@@ -15,6 +16,7 @@ import {
 import { AccountContext } from './context';
 import * as yup from 'yup';
 import axios from 'axios';
+import { setAuth } from '../../redux/features/dash/dashSlice';
 
 const validationSchema = yup.object({
   email: yup.string().required(),
@@ -24,6 +26,10 @@ const validationSchema = yup.object({
 export function LoginForm(props) {
   const { switchToSignup } = useContext(AccountContext);
   const [error, setError] = useState(null);
+
+  const { auth } = useSelector((state) => state.dash);
+
+  const dispatch = useDispatch();
 
   const onSubmit = async (values) => {
     setError(null);
@@ -42,6 +48,8 @@ export function LoginForm(props) {
 
     if (response) {
       alert('Welcome back in. Authenticating...');
+      // dispatch(setAuth());
+      // console.log(auth);
     }
   };
 

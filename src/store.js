@@ -1,15 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit';
 import dashReducer from './redux/features/dash/dashSlice';
-import { testApi } from './redux/services/data';
+import { mainApi } from './redux/services/data';
 import { setupListeners } from '@reduxjs/toolkit/dist/query';
 
 export const store = configureStore({
   reducer: {
-    [testApi.reducerPath]: testApi.reducer,
+    [mainApi.reducerPath]: mainApi.reducer,
     dash: dashReducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(testApi.middleware),
+    getDefaultMiddleware().concat(mainApi.middleware),
 });
 
 setupListeners(store.dispatch);

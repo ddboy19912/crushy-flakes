@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import campaignBanner from '../../images/1st stat.png';
 import { AreaGraph, PlotGraph, Statistics, Table1 } from '../../components';
 import { Link } from 'react-router-dom';
 
 const Container = styled.div`
-  /* width: 100%; */
   height: 100%;
 `;
 const Wrapper = styled.div`

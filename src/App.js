@@ -29,9 +29,11 @@ function App() {
   // const {theme} = useGlobalContext();
   // const themeStyle = theme === "light" ? lightTheme : darkTheme;
 
-  const { modalOpen } = useSelector((state) => state.dash);
+  const { modalOpen, auth } = useSelector((state) => state.dash);
 
-  const [success, setSuccess] = useState(true);
+  console.log(auth);
+
+  // const [success, setSuccess] = useState(false);
 
   useEffect(() => {
     if (modalOpen) {
@@ -47,7 +49,7 @@ function App() {
       {/* <ThemeProvider theme={themeStyle}> */}
       {/* <GlobalStyle /> */}
       {modalOpen && <Modal />}
-      {!success ? (
+      {auth ? (
         <LoginCont>
           <AccountBox />
         </LoginCont>

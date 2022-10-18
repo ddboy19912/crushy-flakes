@@ -1,10 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 import ImageUploader from 'react-images-upload';
-import { Form, Formik } from 'formik';
-import { DragnDrop, Button, CustomInput, CustomSelect } from '../../components';
+import { Form, Formik, ErrorMessage } from 'formik';
+import {
+  DragnDrop,
+  Button,
+  CustomInput,
+  CustomSelect,
+  CustomCheckbox,
+} from '../../components';
 import { advancedSchema } from '../../schemas';
-import Axios from 'axios';
+import axios from 'axios';
 
 const Container = styled.div`
   display: flex;
@@ -81,13 +87,26 @@ const Dollarbg = styled.div`
   color: black;
 `;
 
+const key = '1922|EeDdf3uI1ze4hM8EfSjZmKWnBQGKHoskOVBd5rfz';
+
 const onSubmit = async (values, actions) => {
-  // const axiosConfig = {
-  //   headers: {
-  //     Authorization: `Bearer ${YOUR_AUTH_KEY}`,
-  //     'Content-Type': 'application/json',
-  //   },
-  // }
+  const axiosConfig = {
+    headers: {
+      Authorization: `Bearer ${key}`,
+      'Content-Type': 'application/json',
+    },
+  };
+
+  await axios
+    .post('https://ganbaru.xyz/admin-api/v1/offers', values, axiosConfig)
+    .then((response) => {
+      console.log('success');
+    })
+    .catch((err) => {
+      console.log('baddddd');
+    });
+
+  console.log('OK');
 
   await new Promise((resolve) => setTimeout(resolve, 1000));
   actions.resetForm();
@@ -102,7 +121,21 @@ const CampaignForm = () => {
     <Container>
       <Wrapper>
         <Formik
-          initialValues={{ title: '', term: '', acceptedTos: false }}
+          initialValues={{
+            title: '',
+            interest_rate: '',
+            tenure: 0,
+            max_amount: 9999999999,
+            issuer: '',
+            product_paper: '',
+            issuer_logo: '',
+            name: '',
+            start_date: '',
+            closing: '',
+            active: false,
+            overview: '',
+            days: '',
+          }}
           validationSchema={advancedSchema}
           onSubmit={onSubmit}
         >
@@ -120,7 +153,7 @@ const CampaignForm = () => {
                     withIcon={false}
                     withPreview={true}
                     label=""
-                    name="img"
+                    name="issuer_logo"
                     buttonText="Upload Logo"
                     // onChange={this.onDrop}
                     imgExtension={['.jpg', '.gif', '.png', '.gif', '.svg']}
@@ -153,7 +186,7 @@ const CampaignForm = () => {
                   >
                     <CustomInput
                       label="Offering Owner"
-                      name="owner"
+                      name="issuer"
                       type="text"
                       placeholder="Offering Owner"
                     />
@@ -175,11 +208,11 @@ const CampaignForm = () => {
                       gap: '1rem',
                     }}
                   >
-                    <CustomSelect
-                      label="Day Term"
-                      name="term"
-                      placeholder="Day Term"
-                    ></CustomSelect>
+                    <CustomInput
+                      label="Tenure"
+                      name="tenure"
+                      placeholder="Tenure"
+                    ></CustomInput>
                   </div>
 
                   <div
@@ -189,11 +222,11 @@ const CampaignForm = () => {
                       gap: '1rem',
                     }}
                   >
-                    <CustomSelect
-                      label="Funding Goal"
-                      name="goal"
+                    <CustomInput
+                      label="Maximum Amount"
+                      name="max_amount"
                       placeholder="Funding Goal"
-                    ></CustomSelect>
+                    ></CustomInput>
                   </div>
 
                   <div
@@ -203,11 +236,11 @@ const CampaignForm = () => {
                       gap: '1rem',
                     }}
                   >
-                    <CustomSelect
+                    <CustomInput
                       label="Number of Days"
                       name="days"
                       placeholder="Number of Days"
-                    ></CustomSelect>
+                    ></CustomInput>
                   </div>
                 </Grids2>
                 <Grids2>
@@ -220,7 +253,7 @@ const CampaignForm = () => {
                   >
                     <CustomInput
                       label="Interest Rate"
-                      name="rate"
+                      name="interest_rate"
                       type="text"
                       placeholder="Interest Rate"
                     />
@@ -235,7 +268,7 @@ const CampaignForm = () => {
                   >
                     <CustomInput
                       label="Start Date"
-                      name="start"
+                      name="start_date"
                       type="date"
                       placeholder="Start Date"
                     />
@@ -249,31 +282,41 @@ const CampaignForm = () => {
                     }}
                   >
                     <CustomInput
-                      label="End Date"
-                      name="end"
+                      label="Closing Date"
+                      name="closing"
                       type="date"
                       placeholder="End Date"
                     />
                   </div>
                 </Grids2>
-                <div
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '1rem',
-                  }}
-                >
-                  <label htmlFor="docs">Upload Documents</label>
-                  <DragnDrop
-                    id="docs"
-                    onFileChange={(files) => onFileChange(files)}
-                  />
-                </div>
+                <FirstGrid>
+                  <div
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: '1rem',
+                    }}
+                  >
+                    <label htmlFor="docs">Product Paper</label>
+                    <DragnDrop
+                      id="docs"
+                      onFileChange={(files) => onFileChange(files)}
+                    />
+                  </div>
+                  <CustomCheckbox type="checkbox" name="active" />
+                </FirstGrid>
                 <div
                   style={{ display: 'flex', gap: '2rem', marginTop: '1rem' }}
                 >
-                  <Button value="Save" />
-                  <Button value="Launch" type="submit" />
+                  {/* <Button on value="Save" /> */}
+                  <button
+                    onClick={onSubmit}
+                    type="submit"
+                    disabled={isSubmitting}
+                  >
+                    Launch
+                  </button>
+                  {/* <Button value="Launch" type="submit" /> */}
                 </div>
               </Column>
             </Form>
