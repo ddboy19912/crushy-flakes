@@ -8,7 +8,7 @@ import Modal from '@mui/material/Modal';
 import Backdrop from '@mui/material/Backdrop';
 import Fade from '@mui/material/Fade';
 import Box from '@mui/material/Box';
-import { SingleCampaign } from '../';
+import { SingleCampaign } from '..';
 import styled from 'styled-components';
 import axios from 'axios';
 
@@ -32,70 +32,53 @@ const StyledModal = styled(Modal)`
   background: blueviolet;
 `;
 
-export default function Table1() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  function toggleModal() {
-    setIsOpen(!isOpen);
-  }
+export default function Table2({data}) {
+ 
 
   const columns = [
     {
-      field: 'title',
-      headerName: 'Campaign Name',
+      field: 'act-nam',
+      headerName: 'Account Name',
       width: 114,
       headerAlign: 'center',
       align: 'center',
     },
     {
-      field: 'issuer',
-      headerName: 'Campaign Owner',
+      field: 'act-num',
+      headerName: 'Account Number',
       width: 114,
       headerAlign: 'center',
       align: 'center',
     },
     {
-      field: 'invested_amount',
-      headerName: 'Invested Amount',
+      field: 'act-typ',
+      headerName: 'Account Type',
       width: 114,
       headerAlign: 'center',
       align: 'center',
     },
     {
-      field: 'remaining_amount',
-      headerName: 'Remaining Amount',
+      field: 'country',
+      headerName: 'Country',
       width: 114,
       headerAlign: 'center',
       align: 'center',
     },
     {
-      field: 'days_to_go',
-      headerName: 'Days left',
+      field: 'f-name',
+      headerName: 'First Name',
       width: 114,
       headerAlign: 'center',
       align: 'center',
     },
     {
-      field: 'created_at',
-      headerName: 'Start Date',
+      field: 'm-name',
+      headerName: 'Last Name',
       width: 114,
       headerAlign: 'center',
       align: 'center',
     },
-    {
-      field: 'to_be_closed_at',
-      headerName: 'Closing date',
-      width: 114,
-      headerAlign: 'center',
-      align: 'center',
-    },
-    {
-      field: 'active',
-      headerName: ' ',
-      width: 114,
-      headerAlign: 'center',
-      align: 'center',
-    },
+   
     {
       field: 'actions',
       type: 'actions',
@@ -108,7 +91,7 @@ export default function Table1() {
         <GridActionsCellItem
           icon={<ArrowCircleDownIcon />}
           label="View Offer"
-          onClick={toggleModal}
+          // onClick={toggleModal}
           showInMenu
         />,
         <GridActionsCellItem
@@ -127,55 +110,22 @@ export default function Table1() {
     },
   ];
 
-  const { data, isFetching, error } = useGetOffersQuery();
 
-  const [rows, setRows] = useState([]);
-  const [loading, setLoading] = useState(true);
 
-  const values = data?.data?.data;
 
-  useEffect(() => {
-    if (!isFetching) {
-      setRows(values);
-      setLoading(false);
-      console.log(rows);
-    }
-  }, [values, isFetching, rows]);
 
-  if (error) return <h1>OOPS</h1>;
+ console.log(data);
+
 
   return (
-    <div style={{ height: 480, width: '100%' }}>
-      <Modal
-        sx={{ width: '100%' }}
-        aria-labelledby="transition-modal-title"
-        aria-describedby="transition-modal-description"
-        open={isOpen}
-        onClose={toggleModal}
-        closeAfterTransition
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-          timeout: 500,
-        }}
-      >
-        <Fade in={isOpen}>
-          <Box sx={style}>
-            <div>
-              {values?.slice(0, 1)?.map((item, i) => {
-                return <SingleCampaign item={item} key={i} />;
-              })}
-            </div>
-          </Box>
-        </Fade>
-      </Modal>
+    <div style={{ height: 400, width: '100%' }}>
       <DataGrid
-        rows={rows}
+        rows={data}
         columns={columns}
         pageSize={7}
         rowsPerPageOptions={[7]}
-        sx={{ fontSize: '13px' }}
-        loading={loading}
-        // components={{ Toolbar: GridToolbar }}
+        sx={{ fontSize: '13px', width: '100%' }}
+    
       />
     </div>
   );

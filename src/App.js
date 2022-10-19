@@ -31,10 +31,6 @@ function App() {
 
   const { modalOpen, auth } = useSelector((state) => state.dash);
 
-  console.log(auth);
-
-  // const [success, setSuccess] = useState(false);
-
   useEffect(() => {
     if (modalOpen) {
       document.body.style.overflow = 'hidden';

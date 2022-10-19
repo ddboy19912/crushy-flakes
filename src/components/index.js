@@ -5,7 +5,7 @@ export { default as SearchTable } from './SearchTable/SearchTable.tsx';
 export { default as SearchSup } from './SearchSup/SearchSup';
 export { default as Sidebar } from './Sidebar/Sidebar';
 export { default as Statistics } from './Statistics/Statistics';
-// export { default as Table } from './Table/Tablee';
+export { default as Table2 } from './Table1/Table2.jsx';
 export { default as Table1 } from './Table1/Table1.jsx';
 // export { default as Tables } from './Tables/Tables';
 export { default as Transactions } from './Transactions/Transactions';

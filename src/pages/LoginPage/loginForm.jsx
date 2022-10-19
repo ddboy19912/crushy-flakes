@@ -33,6 +33,7 @@ export function LoginForm(props) {
 
   const onSubmit = async (values) => {
     setError(null);
+
     const response = await axios
       .post('https://ganbaru.xyz/admin-api/v1/login', values, {
         headers: {
@@ -104,12 +105,6 @@ export function LoginForm(props) {
         </SubmitButton>
       </FormContainer>
       <Marginer direction="vertical" margin={5} />
-      <MutedLink href="#">
-        Dont have an Account?
-        <BoldLink href="#" onClick={switchToSignup}>
-          sign up
-        </BoldLink>
-      </MutedLink>
     </BoxContainer>
   );
 }

@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { DragnDrop } from '../../components';
 import { Link } from 'react-router-dom';
 import 'react-step-progress-bar/styles.css';
 import { ProgressBar, Step } from 'react-step-progress-bar';
-import { UploaderComponent } from '@syncfusion/ej2-react-inputs';
 
 const Container = styled.div`
   display: flex;
@@ -12,9 +11,8 @@ const Container = styled.div`
   width: 100%;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 800px;
   background: #eef0f8;
-  height: 100vh;
   border: 0.5px solid #e1e5e4;
   box-shadow: 0px 0px 30px rgba(122, 128, 126, 0.1);
   border-radius: 4px;
@@ -24,7 +22,7 @@ const Container = styled.div`
 const Wrapper = styled.div`
   padding: 20px 34px;
   width: 95%;
-  height: 90%;
+  height: 100%;
   display: flex;
   background: #fff;
   flex-direction: column;
@@ -35,7 +33,7 @@ const Wrapper = styled.div`
 
 const BulkContainer = styled.div`
   width: 80%;
-  height: 800px;
+  height: 1300px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -79,7 +77,30 @@ const Circle = styled.div`
   background-color: red;
 `;
 
+const DropZone = styled.div`
+  width: 100%;
+  height: 100%;
+  background: blue;
+`;
+
 const BulkUploads = () => {
+  // const [data, setData] = useState([]);
+
+  // const onDragOver = (event) => {
+  //   event.preventDefault();
+  //   console.log('dragging over');
+  // };
+
+  // const onDrop = (event) => {
+  //   event.preventDefault();
+  //   console.log(event.dataTransfer.files);
+  //   Array.from(event.dataTransfer.files).map(async (file) => {
+  //     let text = await file.text();
+  //     let result = parse(text, { headers: true });
+  //     console.log(result);
+  //     setData(result.data);
+  //   });
+  // };
   return (
     <Container>
       <Wrapper>
@@ -192,6 +213,7 @@ const BulkUploads = () => {
               </span>
             </InfoPara>
           </Info>
+          {/* <DropZone onDrop={onDrop}>yo</DropZone> */}
           <form>
             <DragnDrop title="Drop files here to upload" />
           </form>

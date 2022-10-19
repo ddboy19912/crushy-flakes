@@ -5,7 +5,10 @@ export const mainApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://ganbaru.xyz/admin-api/v1',
     prepareHeaders: (headers) => {
-      headers.set('X-RapidAPI-Key', process.env.REACT_APP_YOUR_AUTH_KEY);
+      headers.set(
+        'Authorization',
+        'Bearer 1984|gBj53IM483eU0rNgIcdcSpUoBgCoB3fd34Z8uR6O'
+      );
       return headers;
     },
   }),

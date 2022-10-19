@@ -5,7 +5,6 @@ import uploadImg from '../../images/cloud-upload-regular-240.png';
 import styled from 'styled-components';
 import './drop-file-input.css';
 import { parse } from 'papaparse';
-import Table2 from '../Table1/Table2';
 
 const DragnDrop = (props) => {
   const wrapperRef = useRef(null);
@@ -26,7 +25,7 @@ const DragnDrop = (props) => {
   // };
 
   const [data, setData] = useState([]);
-  const [upload, setUpload] = useState(false);
+
   const onDragOver = (event) => {
     event.preventDefault();
     console.log('dragging over');
@@ -38,10 +37,9 @@ const DragnDrop = (props) => {
     console.log(event.dataTransfer.files);
     Array.from(event.dataTransfer.files).map(async (file) => {
       let text = await file.text();
-      let result = parse(text, { header: true });
-      console.log(result.data);
+      let result = parse(text, { headers: true });
+      console.log(result);
       setData(result.data);
-      setUpload(true);
     });
   };
 
@@ -63,7 +61,7 @@ const DragnDrop = (props) => {
 
   return (
     <>
-     {!upload && <div
+      <div
         ref={wrapperRef}
         className="drop-file-input"
         onDragEnter={onDragEnter}
@@ -76,12 +74,32 @@ const DragnDrop = (props) => {
           <p>{props.title}</p>
         </div>
         <input type="file" value="" onChange={onFileDrop} />
-      </div>}
-          {upload && <div style={{width: '700px', height: '300px'}}>
-           <Table2 data={data} />
-          </div>}
-        
-      
+      </div>
+      {fileList.length > 0 ? (
+        <div className="drop-file-preview">
+          <p className="drop-file-preview__title">Ready to upload</p>
+          {fileList.map((item, index) => (
+            <div key={index} className="drop-file-preview__item">
+              <img
+                src={
+                  ImageConfig[item.type.split('/')[1]] || ImageConfig['default']
+                }
+                alt=""
+              />
+              <div className="drop-file-preview__item__info">
+                <p>{item.name}</p>
+                <p> SIZE: {item.size}B</p>
+              </div>
+              <span
+                className="drop-file-preview__item__del"
+                onClick={() => fileRemove(item)}
+              >
+                x
+              </span>
+            </div>
+          ))}
+        </div>
+      ) : null}
     </>
   );
 };
