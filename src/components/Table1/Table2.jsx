@@ -203,6 +203,13 @@ export default function Table2({ data }) {
       align: 'center',
     },
     {
+      field: 'bnk-nam',
+      headerName: 'bnk-nam',
+      width: 114,
+      headerAlign: 'center',
+      align: 'center',
+    },
+    {
       field: 'act-typ',
       headerName: 'Account Type',
       width: 114,
@@ -210,22 +217,8 @@ export default function Table2({ data }) {
       align: 'center',
     },
     {
-      field: 'country',
-      headerName: 'Country',
-      width: 114,
-      headerAlign: 'center',
-      align: 'center',
-    },
-    {
-      field: 'f-name',
-      headerName: 'First Name',
-      width: 114,
-      headerAlign: 'center',
-      align: 'center',
-    },
-    {
-      field: 'm-name',
-      headerName: 'Last Name',
+      field: 'investor-typ',
+      headerName: 'investor-typ',
       width: 114,
       headerAlign: 'center',
       align: 'center',
