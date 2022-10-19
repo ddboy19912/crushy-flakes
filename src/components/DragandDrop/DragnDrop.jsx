@@ -63,25 +63,27 @@ const DragnDrop = (props) => {
 
   return (
     <>
-     {!upload && <div
-        ref={wrapperRef}
-        className="drop-file-input"
-        onDragEnter={onDragEnter}
-        onDragLeave={onDragLeave}
-        onDrop={onDrop}
-        onDragOver={onDragOver}
-      >
-        <div className="drop-file-input__label">
-          <img src={uploadImg} alt="" />
-          <p>{props.title}</p>
+      {!upload && (
+        <div
+          ref={wrapperRef}
+          className="drop-file-input"
+          onDragEnter={onDragEnter}
+          onDragLeave={onDragLeave}
+          onDrop={onDrop}
+          onDragOver={onDragOver}
+        >
+          <div className="drop-file-input__label">
+            <img src={uploadImg} alt="" />
+            <p>{props.title}</p>
+          </div>
+          <input type="file" value="" onChange={onFileDrop} />
         </div>
-        <input type="file" value="" onChange={onFileDrop} />
-      </div>}
-          {upload && <div style={{width: '700px', height: '300px'}}>
-           <Table2 data={data} />
-          </div>}
-        
-      
+      )}
+      {upload && (
+        <div style={{ width: '800px', height: '300px' }}>
+          <Table2 data={data} />
+        </div>
+      )}
     </>
   );
 };

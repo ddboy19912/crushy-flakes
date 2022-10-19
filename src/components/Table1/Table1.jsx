@@ -91,7 +91,7 @@ export default function Table1() {
     },
     {
       field: 'active',
-      headerName: ' ',
+      headerName: 'Active',
       width: 114,
       headerAlign: 'center',
       align: 'center',
