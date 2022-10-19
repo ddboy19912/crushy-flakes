@@ -32,20 +32,172 @@ const StyledModal = styled(Modal)`
   background: blueviolet;
 `;
 
-export default function Table2({data}) {
- 
-
+export default function Table2({ data }) {
   const columns = [
     {
-      field: 'act-nam',
-      headerName: 'Account Name',
+      field: 'id',
+      headerName: 'id',
+      width: 114,
+      headerAlign: 'center',
+      align: 'center',
+    },
+    {
+      field: 'digi-type',
+      headerName: 'digi-type',
+      width: 114,
+      headerAlign: 'center',
+      align: 'center',
+    },
+    {
+      field: 'digi-id',
+      headerName: 'digi-id',
+      width: 114,
+      headerAlign: 'center',
+      align: 'center',
+    },
+    {
+      field: 'title',
+      headerName: 'title',
+      width: 114,
+      headerAlign: 'center',
+      align: 'center',
+    },
+    {
+      field: 'f-name',
+      headerName: 'f-name',
+      width: 114,
+      headerAlign: 'center',
+      align: 'center',
+    },
+    {
+      field: 'l-name',
+      headerName: 'l-name',
+      width: 114,
+      headerAlign: 'center',
+      align: 'center',
+    },
+    {
+      field: 'm-name',
+      headerName: 'Last Name',
+      width: 114,
+      headerAlign: 'center',
+      align: 'center',
+    },
+    {
+      field: 'dob',
+      headerName: 'dob',
+      width: 114,
+      headerAlign: 'center',
+      align: 'center',
+    },
+    {
+      field: 'sex',
+      headerName: 'sex',
+      width: 114,
+      headerAlign: 'center',
+      align: 'center',
+    },
+    {
+      field: 'm-num',
+      headerName: 'm-num',
+      width: 114,
+      headerAlign: 'center',
+      align: 'center',
+    },
+    {
+      field: 'email',
+      headerName: 'email',
+      width: 114,
+      headerAlign: 'center',
+      align: 'center',
+    },
+    {
+      field: 'p-loc',
+      headerName: 'p-loc',
+      width: 114,
+      headerAlign: 'center',
+      align: 'center',
+    },
+    {
+      field: 'photo',
+      headerName: 'photo',
+      width: 114,
+      headerAlign: 'center',
+      align: 'center',
+    },
+    {
+      field: 'm-status',
+      headerName: 'm-status',
+      width: 114,
+      headerAlign: 'center',
+      align: 'center',
+    },
+    {
+      field: 'nok',
+      headerName: 'nok',
+      width: 114,
+      headerAlign: 'center',
+      align: 'center',
+    },
+    {
+      field: 'mum-sq',
+      headerName: 'mum-sq',
+      width: 114,
+      headerAlign: 'center',
+      align: 'center',
+    },
+    {
+      field: 'edu',
+      headerName: 'edu',
+      width: 114,
+      headerAlign: 'center',
+      align: 'center',
+    },
+    {
+      field: 'job',
+      headerName: 'job',
+      width: 114,
+      headerAlign: 'center',
+      align: 'center',
+    },
+    {
+      field: 'is_staff',
+      headerName: 'is_staff',
+      width: 114,
+      headerAlign: 'center',
+      align: 'center',
+    },
+    {
+      field: 'sor',
+      headerName: 'sor',
+      width: 114,
+      headerAlign: 'center',
+      align: 'center',
+    },
+    {
+      field: 'country',
+      headerName: 'country',
+      width: 114,
+      headerAlign: 'center',
+      align: 'center',
+    },
+    {
+      field: 'd-sign',
+      headerName: 'd-sign',
       width: 114,
       headerAlign: 'center',
       align: 'center',
     },
     {
       field: 'act-num',
-      headerName: 'Account Number',
+      headerName: 'act-num',
+      width: 114,
+      headerAlign: 'center',
+      align: 'center',
+    },
+    {
+      field: 'act-nam',
+      headerName: 'act-nam',
       width: 114,
       headerAlign: 'center',
       align: 'center',
@@ -78,44 +230,9 @@ export default function Table2({data}) {
       headerAlign: 'center',
       align: 'center',
     },
-   
-    {
-      field: 'actions',
-      type: 'actions',
-      headerName: '',
-      width: 50,
-      headerAlign: 'center',
-      align: 'center',
-
-      getActions: (params) => [
-        <GridActionsCellItem
-          icon={<ArrowCircleDownIcon />}
-          label="View Offer"
-          // onClick={toggleModal}
-          showInMenu
-        />,
-        <GridActionsCellItem
-          icon={<ArrowCircleDownIcon />}
-          label="Set as Active"
-          // onClick={toggleAdmin(params.id)}
-          showInMenu
-        />,
-        <GridActionsCellItem
-          icon={<DeleteIcon />}
-          label="Delete Offer"
-          // onClick={duplicateUser(params.id)}
-          showInMenu
-        />,
-      ],
-    },
   ];
 
-
-
-
-
- console.log(data);
-
+  console.log(data);
 
   return (
     <div style={{ height: 400, width: '100%' }}>
@@ -125,7 +242,6 @@ export default function Table2({data}) {
         pageSize={7}
         rowsPerPageOptions={[7]}
         sx={{ fontSize: '13px', width: '100%' }}
-    
       />
     </div>
   );
