@@ -143,13 +143,15 @@ export default function Table1() {
 
   const values = data?.data?.data;
 
-  useEffect(() => {
-    if (!isFetching) {
-      setRows(values);
-      setLoading(false);
-      console.log(rows);
-    }
-  }, [values, isFetching, rows]);
+  setRows(values);
+
+  // useEffect(() => {
+  //   if (!isFetching) {
+  //     setRows(values);
+  //     setLoading(false);
+  //     console.log(rows);
+  //   }
+  // }, [values, isFetching, rows]);
 
   if (error) return <h1>OOPS</h1>;
 
