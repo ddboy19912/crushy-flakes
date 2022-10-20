@@ -19,13 +19,14 @@ export default function Login({ setToken }) {
   const [password, setPassword] = useState();
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     const token = await loginUser({
       email,
       password,
     });
     setToken(token?.data?.token);
     console.log(token?.data?.token);
+    window.location.reload();
   };
 
   return (
