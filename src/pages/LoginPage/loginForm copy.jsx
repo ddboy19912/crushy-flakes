@@ -26,7 +26,6 @@ export default function Login({ setToken }) {
     });
     setToken(token?.data?.token);
     console.log(token?.data?.token);
-    window.location.reload();
   };
 
   return (
