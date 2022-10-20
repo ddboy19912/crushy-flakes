@@ -46,8 +46,7 @@ function App() {
 
   if (!token) {
     return <Login setToken={setToken} />;
-  } else if (!token) alert('Login is required');
-  else alert('Login successful');
+  }
 
   return (
     <Router>
