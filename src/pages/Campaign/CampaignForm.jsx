@@ -4,8 +4,11 @@ import { useFormik } from 'formik';
 import { advancedSchema } from '../../schemas';
 import axios from 'axios';
 import * as yup from 'yup';
+import ImageUploader from 'react-images-upload';
 
-const key = '1984|gBj53IM483eU0rNgIcdcSpUoBgCoB3fd34Z8uR6O';
+const tokenString = sessionStorage.getItem('token');
+const userToken = JSON.parse(tokenString);
+console.log(userToken);
 
 const onSubmit = async (values, actions) => {
   console.log(values);
@@ -26,7 +29,7 @@ const onSubmit = async (values, actions) => {
 
   const axiosConfig = {
     headers: {
-      Authorization: `Bearer ${key}`,
+      Authorization: `Bearer ${userToken}`,
       'Content-Type': 'multipart/form-data',
       env: 'monieworx',
     },

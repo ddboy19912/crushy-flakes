@@ -1,9 +1,8 @@
-import { Field, useFormik } from 'formik';
-import React, { useContext, useState } from 'react';
+import { useFormik } from 'formik';
+import React, { useState } from 'react';
 import { Marginer } from './marginer';
 import { useSelector, useDispatch } from 'react-redux';
 import {
-  BoldLink,
   BoxContainer,
   FieldContainer,
   FieldError,
@@ -13,10 +12,10 @@ import {
   MutedLink,
   SubmitButton,
 } from './common';
-import { AccountContext } from './context';
 import * as yup from 'yup';
 import axios from 'axios';
 import { setAuth } from '../../redux/features/dash/dashSlice';
+import PropTypes from 'prop-types';
 
 const validationSchema = yup.object({
   email: yup.string().required(),
@@ -24,7 +23,6 @@ const validationSchema = yup.object({
 });
 
 export function LoginForm(props) {
-  const { switchToSignup } = useContext(AccountContext);
   const [error, setError] = useState(null);
 
   const { auth } = useSelector((state) => state.dash);
@@ -49,8 +47,6 @@ export function LoginForm(props) {
 
     if (response) {
       alert('Welcome back in. Authenticating...');
-      // dispatch(setAuth());
-      // console.log(auth);
     }
   };
 
@@ -108,3 +104,7 @@ export function LoginForm(props) {
     </BoxContainer>
   );
 }
+
+LoginForm.propTypes = {
+  setToken: PropTypes.func.isRequired,
+};
