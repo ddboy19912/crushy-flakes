@@ -78,37 +78,6 @@ const Campaign = () => {
     <Container>
       <Wrapper>
         <Statistics />
-        <FirstGrid>
-          <div
-            style={{
-              width: '100%',
-              height: '250px',
-              borderRadius: '10px',
-              display: 'flex',
-              alignItems: 'center',
-              overflow: 'hidden',
-            }}
-          >
-            <Link to="/create-campaign" style={{ width: '100%' }}>
-              <CampaignImg
-                src={campaignBanner}
-                alt=""
-                width="100%"
-                height="300px"
-              />
-            </Link>
-          </div>
-          <GraphCard>
-            <div style={{ width: '100%' }}>
-              <AreaGraph />
-            </div>
-          </GraphCard>
-        </FirstGrid>
-        <ThirdCard>
-          <div style={{ width: '100%' }}>
-            <PlotGraph />
-          </div>
-        </ThirdCard>
         <TableCard>
           <Heading>Campaigns</Heading>
           <Table1 />

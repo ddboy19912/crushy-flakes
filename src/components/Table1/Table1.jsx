@@ -43,56 +43,64 @@ export default function Table1() {
     {
       field: 'title',
       headerName: 'Campaign Name',
-      width: 114,
+      // width: 114,
+      flex: 1,
       headerAlign: 'center',
       align: 'center',
     },
     {
       field: 'issuer',
       headerName: 'Campaign Owner',
-      width: 114,
+      // width: 114,
+      flex: 1,
       headerAlign: 'center',
       align: 'center',
     },
     {
       field: 'invested_amount',
       headerName: 'Invested Amount',
-      width: 114,
+      // width: 114,
+      flex: 1,
       headerAlign: 'center',
       align: 'center',
     },
     {
       field: 'remaining_amount',
       headerName: 'Remaining Amount',
-      width: 114,
+      // width: 114,
+      flex: 1,
       headerAlign: 'center',
       align: 'center',
     },
     {
       field: 'days_to_go',
       headerName: 'Days left',
-      width: 114,
+      // width: 114,
+      flex: 1,
       headerAlign: 'center',
       align: 'center',
     },
     {
       field: 'created_at',
       headerName: 'Start Date',
-      width: 114,
+      // width: 114,
+      flex: 1,
       headerAlign: 'center',
       align: 'center',
     },
     {
       field: 'to_be_closed_at',
       headerName: 'Closing date',
-      width: 114,
+      // width: 114,
+      flex: 1,
       headerAlign: 'center',
       align: 'center',
     },
     {
       field: 'active',
       headerName: 'Active',
-      width: 114,
+      // width: 114,
+      flex: 1,
       headerAlign: 'center',
       align: 'center',
     },
@@ -100,7 +108,8 @@ export default function Table1() {
       field: 'actions',
       type: 'actions',
       headerName: '',
-      width: 50,
+      // width: 50,
+      flex: 0.5,
       headerAlign: 'center',
       align: 'center',
 
@@ -171,10 +180,11 @@ export default function Table1() {
       <DataGrid
         rows={rows}
         columns={columns}
-        pageSize={7}
+        // pageSize={7}
         rowsPerPageOptions={[7]}
         sx={{ fontSize: '13px' }}
         loading={loading}
+        autoPageSize
         // components={{ Toolbar: GridToolbar }}
       />
     </div>

@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import ImageUploader from 'react-images-upload';
 import { useFormik } from 'formik';
 import { advancedSchema } from '../../schemas';
 import axios from 'axios';
@@ -29,7 +28,6 @@ const onSubmit = async (values, actions) => {
     headers: {
       Authorization: `Bearer ${key}`,
       'Content-Type': 'multipart/form-data',
-      // Accept: 'application/json',
       env: 'monieworx',
     },
   };
@@ -40,12 +38,11 @@ const onSubmit = async (values, actions) => {
       alert('Offer Successfully created');
     })
     .catch((err) => {
-      console.log('baddddd');
+      alert('Something went wrong');
     });
 
   await new Promise((resolve) => setTimeout(resolve, 1000));
   actions.resetForm();
-  window.location.reload();
 };
 
 const validationSchema = yup.object({
@@ -84,7 +81,7 @@ const Input = styled.input`
   font-size: 16px;
   border-radius: 8px;
   border-style: solid;
-  width: 70%;
+  width: 100%;
   &:focus {
     outline: none;
   }
@@ -103,8 +100,48 @@ const Error = styled.p`
 `;
 
 const TextArea = styled.textarea`
-  width: 700px;
+  border-width: 2px;
+  border-color: #cccccc;
+  padding: 17px;
+  font-size: 16px;
+  border-radius: 8px;
+  border-style: solid;
+  width: 100%;
   height: 200px;
+`;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+`;
+
+const Grid1 = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+`;
+const Grid2 = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+`;
+
+const Button = styled.button`
+  background: #2050f5;
+  border-radius: 4px;
+  width: 166px;
+  height: 50px;
+  border: none;
+  color: #ffffff;
+  ${'' /* margin-top: 2rem; */}
+  cursor: pointer;
+`;
+
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 `;
 
 const CampaignForm = () => {
@@ -127,112 +164,130 @@ const CampaignForm = () => {
     validationSchema: validationSchema,
   });
   return (
-    <div style={{ marginTop: '1rem' }}>
-      <form onSubmit={formik.handleSubmit} encType="multipart/form-data">
-        <FlexCol>
-          <label>Title of the campaign</label>
-          <Input
-            name="title"
-            placeholder="Title"
-            value={formik.values.title}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          />
-          {formik.touched.title && formik.errors.title ? (
-            <Error>{formik.errors.title}</Error>
-          ) : (
-            ''
-          )}
-        </FlexCol>
+    <Container>
+      <Form onSubmit={formik.handleSubmit} encType="multipart/form-data">
+        <Grid1>
+          <FlexCol>
+            <label>Title of the campaign</label>
+            <Input
+              name="title"
+              placeholder="Title"
+              value={formik.values.title}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
+            {formik.touched.title && formik.errors.title ? (
+              <Error>{formik.errors.title}</Error>
+            ) : (
+              ''
+            )}
+          </FlexCol>
 
-        <FlexCol>
-          <label>Interest Rate</label>
-          <Input
-            name="interest_rate"
-            type="number"
-            placeholder="Interest Rate"
-            value={formik.values.interest_rate}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          />
+          <FlexCol>
+            <label>Interest Rate</label>
+            <Input
+              name="interest_rate"
+              type="number"
+              placeholder="Interest Rate"
+              value={formik.values.interest_rate}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
 
-          {formik.touched.interest_rate && formik.errors.interest_rate
-            ? formik.errors.interest_rate
-            : ''}
-        </FlexCol>
+            {formik.touched.interest_rate && formik.errors.interest_rate
+              ? formik.errors.interest_rate
+              : ''}
+          </FlexCol>
 
-        <FlexCol>
-          <label>Tenure</label>
-          <Input
-            name="tenure"
-            type="number"
-            placeholder="Tenure"
-            value={formik.values.tenure}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          />
+          <FlexCol>
+            <label>Tenure</label>
+            <Input
+              name="tenure"
+              type="number"
+              placeholder="Tenure"
+              value={formik.values.tenure}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
 
-          {formik.touched.tenure && formik.errors.tenure
-            ? formik.errors.tenure
-            : ''}
-        </FlexCol>
-        <FlexCol>
-          <label>Maximum Amount</label>
-          <Input
-            name="max_amount"
-            type="number"
-            placeholder="Max amaount"
-            value={formik.values.max_amount}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          />
+            {formik.touched.tenure && formik.errors.tenure
+              ? formik.errors.tenure
+              : ''}
+          </FlexCol>
+        </Grid1>
 
-          {formik.touched.max_amount && formik.errors.max_amount ? (
-            <Error>{formik.errors.max_amount}</Error>
-          ) : (
-            ''
-          )}
-        </FlexCol>
+        <Grid1>
+          <FlexCol>
+            <label>Maximum Amount</label>
+            <Input
+              name="max_amount"
+              type="number"
+              placeholder="Max amaount"
+              value={formik.values.max_amount}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
+
+            {formik.touched.max_amount && formik.errors.max_amount ? (
+              <Error>{formik.errors.max_amount}</Error>
+            ) : (
+              ''
+            )}
+          </FlexCol>
+          <FlexCol>
+            <label>Campaign Issuer</label>
+            <Input
+              name="issuer"
+              type="text"
+              placeholder="Issuer"
+              value={formik.values.issuer}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
+          </FlexCol>
+          <FlexCol>
+            <label>Closing Date</label>
+            <Input
+              name="closing_date"
+              type="date"
+              placeholder="Closing Date"
+              value={formik.values.closing_date}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
+          </FlexCol>
+        </Grid1>
+
+        <Grid2>
+          <FlexCol>
+            <label>Issuer Website</label>
+            <Input
+              name="issuer_website"
+              type="text"
+              placeholder="https://"
+              value={formik.values.issuer_website}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
+          </FlexCol>
+          <FlexCol>
+            <label>Overview</label>
+            <TextArea
+              name="overview"
+              value={formik.values.overview}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            ></TextArea>
+          </FlexCol>
+        </Grid2>
         <FlexCol>
-          <label>Campaign Issuer</label>
+          <label>Product Paper</label>
           <Input
-            name="issuer"
-            type="text"
-            placeholder="Issuer"
-            value={formik.values.issuer}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          />
-        </FlexCol>
-        <FlexCol>
-          <label>Closing Date</label>
-          <Input
-            name="closing_date"
-            type="date"
-            placeholder="Closing Date"
-            value={formik.values.closing_date}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          />
-        </FlexCol>
-        <FlexCol>
-          <label>Overview</label>
-          <TextArea
-            name="overview"
-            value={formik.values.overview}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-          ></TextArea>
-        </FlexCol>
-        <FlexCol>
-          <label>Issuer Website</label>
-          <Input
-            name="issuer_website"
-            type="text"
-            placeholder="https://"
-            value={formik.values.issuer_website}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
+            name="product_paper"
+            type="file"
+            onChange={(e) =>
+              formik.setFieldValue('product_paper', e.target.files[0])
+            }
           />
         </FlexCol>
         <FlexCol>
@@ -246,19 +301,9 @@ const CampaignForm = () => {
             }
           />
         </FlexCol>
-        <FlexCol>
-          <label>Product Paper</label>
-          <Input
-            name="product_paper"
-            type="file"
-            onChange={(e) =>
-              formik.setFieldValue('product_paper', e.target.files[0])
-            }
-          />
-        </FlexCol>
-        <button type="submit">Sumbit</button>
-      </form>
-    </div>
+        <Button type="submit">Sumbit</Button>
+      </Form>
+    </Container>
   );
 };
 export default CampaignForm;

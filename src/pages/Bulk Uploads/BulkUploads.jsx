@@ -32,14 +32,14 @@ const Wrapper = styled.div`
 `;
 
 const BulkContainer = styled.div`
-  width: 80%;
-  height: 1300px;
+  width: 90%;
+  height: 1800px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   border: 1px dotted black;
-  height: 100%;
+  /* height: 100%; */
   border-radius: 10px;
   position: relative;
   /* background-color: red; */
@@ -84,23 +84,6 @@ const DropZone = styled.div`
 `;
 
 const BulkUploads = () => {
-  // const [data, setData] = useState([]);
-
-  // const onDragOver = (event) => {
-  //   event.preventDefault();
-  //   console.log('dragging over');
-  // };
-
-  // const onDrop = (event) => {
-  //   event.preventDefault();
-  //   console.log(event.dataTransfer.files);
-  //   Array.from(event.dataTransfer.files).map(async (file) => {
-  //     let text = await file.text();
-  //     let result = parse(text, { headers: true });
-  //     console.log(result);
-  //     setData(result.data);
-  //   });
-  // };
   return (
     <Container>
       <Wrapper>
@@ -213,10 +196,8 @@ const BulkUploads = () => {
               </span>
             </InfoPara>
           </Info>
-          {/* <DropZone onDrop={onDrop}>yo</DropZone> */}
-          <form>
-            <DragnDrop title="Drop files here to upload" />
-          </form>
+
+          <DragnDrop title="Drop files here to upload" />
         </BulkContainer>
       </Wrapper>
     </Container>
