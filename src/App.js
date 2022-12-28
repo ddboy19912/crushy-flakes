@@ -33,6 +33,8 @@ function App() {
 
   const { modalOpen, auth } = useSelector((state) => state.dash);
 
+  // const [token, setToken] = useState(false);
+
   useEffect(() => {
     if (modalOpen) {
       document.body.style.overflow = 'hidden';
@@ -42,7 +44,18 @@ function App() {
     }
   }, [modalOpen]);
 
-  const { token, setToken } = useToken();
+  function setToken(userToken) {
+    sessionStorage.setItem('token', JSON.stringify(userToken));
+    console.log(userToken);
+  }
+
+  function getToken() {
+    const tokenString = sessionStorage.getItem('token');
+    const userToken = JSON.parse(tokenString);
+    return userToken?.token;
+  }
+
+  const token = getToken();
 
   if (!token) {
     return <Login setToken={setToken} />;
@@ -53,23 +66,29 @@ function App() {
       {/* <ThemeProvider theme={themeStyle}> */}
       {/* <GlobalStyle /> */}
       {modalOpen && <Modal />}
-      <Container>
-        <Sidebar />
-        <div style={{ flex: '4', display: 'flex', flexDirection: 'column' }}>
-          {' '}
-          <Navbar />
-          <Routes>
-            <Route exact path="/" element={<Home />} />
-            <Route exact path="/create-campaign" element={<NewCampaign />} />
-            <Route exact path="/campaign" element={<Campaign />} />
-            <Route exact path="/investment" element={<Investment />} />
-            <Route exact path="/support" element={<Support />} />
-            <Route exact path="/settings" element={<Settings />} />
-            <Route exact path="/profile" element={<Profile />} />
-            <Route exact path="/uploads" element={<BulkUploads />} />
-          </Routes>
-        </div>
-      </Container>
+      {auth ? (
+        <LoginCont>
+          <AccountBox />
+        </LoginCont>
+      ) : (
+        <Container>
+          <Sidebar />
+          <div style={{ flex: '4', display: 'flex', flexDirection: 'column' }}>
+            {' '}
+            <Navbar />
+            <Routes>
+              <Route exact path="/" element={<Home />} />
+              <Route exact path="/create-campaign" element={<NewCampaign />} />
+              <Route exact path="/campaign" element={<Campaign />} />
+              <Route exact path="/investment" element={<Investment />} />
+              <Route exact path="/support" element={<Support />} />
+              <Route exact path="/settings" element={<Settings />} />
+              <Route exact path="/profile" element={<Profile />} />
+              <Route exact path="/uploads" element={<BulkUploads />} />
+            </Routes>
+          </div>
+        </Container>
+      )}
       {/* </ThemeProvider> */}
     </Router>
   );

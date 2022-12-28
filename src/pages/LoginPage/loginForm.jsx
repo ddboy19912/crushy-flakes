@@ -96,7 +96,7 @@ export function LoginForm(props) {
         </FieldContainer>
         <MutedLink href="#">Forgot Password?</MutedLink>
         <Marginer direction="vertical" margin="1em" />
-        <SubmitButton type="submit" disabled={!formik.isValid}>
+        <SubmitButton type="submit" disablewd={!formik.isValid}>
           Login
         </SubmitButton>
       </FormContainer>

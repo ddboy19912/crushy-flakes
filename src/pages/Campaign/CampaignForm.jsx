@@ -6,9 +6,9 @@ import axios from 'axios';
 import * as yup from 'yup';
 import ImageUploader from 'react-images-upload';
 
-const tokenString = sessionStorage.getItem('token');
-const userToken = JSON.parse(tokenString);
-console.log(userToken);
+// const tokenString = sessionStorage.getItem('token');
+// const userToken = JSON.parse(tokenString);
+// console.log(userToken);
 
 const onSubmit = async (values, actions) => {
   console.log(values);
@@ -29,7 +29,7 @@ const onSubmit = async (values, actions) => {
 
   const axiosConfig = {
     headers: {
-      Authorization: `Bearer ${userToken}`,
+      Authorization: `Bearer dhsajkdh1`,
       'Content-Type': 'multipart/form-data',
       env: 'monieworx',
     },

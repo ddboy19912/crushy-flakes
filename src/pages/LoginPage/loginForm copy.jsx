@@ -3,29 +3,26 @@ import PropTypes from 'prop-types';
 import './Login.css';
 
 async function loginUser(credentials) {
-  return fetch('https://ganbaru.xyz/admin-api/v1/login', {
+  return fetch('http://localhost:8080/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      Accept: 'application/json',
-      env: 'monieworx',
     },
     body: JSON.stringify(credentials),
   }).then((data) => data.json());
 }
 
 export default function Login({ setToken }) {
-  const [email, setEmail] = useState();
+  const [username, setUserName] = useState();
   const [password, setPassword] = useState();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const token = await loginUser({
-      email,
+      username,
       password,
     });
-    setToken(token?.data?.token);
-    console.log(token?.data?.token);
+    setToken(token);
   };
 
   return (
@@ -33,8 +30,8 @@ export default function Login({ setToken }) {
       <h1>Please Log In</h1>
       <form onSubmit={handleSubmit}>
         <label>
-          <p>Email</p>
-          <input type="email" onChange={(e) => setEmail(e.target.value)} />
+          <p>Username</p>
+          <input type="text" onChange={(e) => setUserName(e.target.value)} />
         </label>
         <label>
           <p>Password</p>
